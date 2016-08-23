@@ -46,14 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="IForm.cs" />
+    <Compile Include="LOGIN\Encriptado.cs" />
+    <Compile Include="LOGIN\Control_acceso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LOGIN\Control_acceso.Designer.cs">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="INICIO\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INICIO\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INICIO\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INICIO\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INICIO\Program.cs" />
+    <Compile Include="LOGIN\Nuevo_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\Nuevo_usuario.Designer.cs">
+      <DependentUpon>Nuevo_usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LOGIN\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LOGIN\Control_acceso.resx">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INICIO\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INICIO\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN\Nuevo_usuario.resx">
+      <DependentUpon>Nuevo_usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +100,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="LOGIN\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +117,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\.facebook_14601202557931.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_female_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\almacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bdd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_male_users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shut_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picasion.com_486ae478bb1e5c7f9f0eac83a104f497.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pollo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pollo_converted.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
