@@ -16,11 +16,11 @@ namespace ElGranPollo
         static void Main()
         {
             //CONEXION PARA LA BASE DE DATOS
-            string ds = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/Empanada/BEEGSOFT/empanada_2/empanada_2/baseEmpanadas.mdb";
+            string ds = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/ElGranPollo/ElGranPollo/ElGranPollo/.mdb";
 
 
             //CONEXION PARA LOS USUARIOS
-            string ds2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/Empanada/BEEGSOFT/empanada_2/empanada_2/UsuariosEmpanadas.mdb";
+            string ds2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/ElGranPollo/ElGranPollo/ElGranPollo/Usuarios.mdb";
             //  h   ola
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
