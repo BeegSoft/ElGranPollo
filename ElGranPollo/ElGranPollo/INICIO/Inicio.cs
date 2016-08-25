@@ -14,12 +14,10 @@ namespace ElGranPollo
 {
     public partial class Inicio : Form
     {
-        public Inicio(string ds,int band,string operador)
+        public Inicio(string ds)
         {
             InitializeComponent();
-            this.ds = ds;
-            this.band = band;
-            this.operador = operador;
+            this.ds = ds;            
         }
         //CONEXION
         int band;
@@ -104,34 +102,31 @@ namespace ElGranPollo
             }            
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Inicio_Load(object sender, EventArgs e)
         {
-            /*Menu form = new Menu(ds);
-            form.Show();*/
+           
+        }
+
+        /*private void button4_Click(object sender, EventArgs e)
+        {
+            Menu form = new Menu(ds);
+            form.Show();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             /*Historial form = new Historial(ds);
-            form.Show();*/
+            form.Show();
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
-        {
-            if (band == 3)
-            {
-                button3.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-            }
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
             /*Almacen corre = new Almacen(ds);
             corre.P = 0;
-            corre.Show();*/
-        }
+            corre.Show();
+        }*/
     }
 }
