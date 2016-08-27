@@ -1,4 +1,4 @@
-﻿namespace empanada_2
+﻿namespace ElGranPollo
 {
     partial class pagar
     {

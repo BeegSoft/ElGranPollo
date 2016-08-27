@@ -68,9 +68,9 @@ namespace ElGranPollo
 
         private void AbrirProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Inicio corre = new Inicio(ds,band,operador);
+            /*Inicio corre = new Inicio(ds,band,operador);
             corre.Show();
-            this.Close();
+            this.Close();*/
         }
 
         private void abrirBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)

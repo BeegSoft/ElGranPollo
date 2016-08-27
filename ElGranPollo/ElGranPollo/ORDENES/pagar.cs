@@ -13,7 +13,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Threading;
 
-namespace empanada_2
+namespace ElGranPollo
 {
     public partial class pagar : Form
     {

@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 
-namespace empanada_2
+namespace ElGranPollo
 {
     class CrearTicket
     {

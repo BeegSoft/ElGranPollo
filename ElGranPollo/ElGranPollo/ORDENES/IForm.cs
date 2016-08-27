@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace empanada_2
+namespace ElGranPollo
 {
     public interface IForm
     {

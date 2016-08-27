@@ -74,7 +74,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::ElGranPollo.Properties.Resources.pollo;
-            this.pictureBox1.Location = new System.Drawing.Point(48, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(237, 216);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
