@@ -145,7 +145,7 @@ namespace ElGranPollo
             {
                 operador = textBox1.Text;
                 band = 3;
-                Inicio form = new Inicio(ds,band,operador);                
+                Inicio form = new Inicio(ds);                
                 LIMPIAR();
                 form.Show();
                 this.Hide();

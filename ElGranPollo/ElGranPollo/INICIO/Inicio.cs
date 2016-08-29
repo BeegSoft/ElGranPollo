@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Threading;
 
 
 namespace ElGranPollo
@@ -16,12 +17,23 @@ namespace ElGranPollo
     {
         public Inicio(string ds)
         {
+            //---------
+            Thread t = new Thread(new ThreadStart(splashtart));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            t.Abort();
+            //---------
             this.ds = ds;            
         }
+
+        private void splashtart()
+        {
+            Application.Run(new Form2(ds));
+        }
+
         //CONEXION
-        int band;
-        string ds,operador;
+        string ds;
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
@@ -52,10 +64,9 @@ namespace ElGranPollo
                 cmd.ExecuteNonQuery();
 
                 conexion.Close();
-                
-                //Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
-                //form.Show();
-                //this.Close();
+                Pricipal form = new Pricipal(fecha, ds);
+                form.Show();
+                this.Close();
             }
 
             catch (Exception)
@@ -63,9 +74,9 @@ namespace ElGranPollo
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    //Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
-                    //form.Show();
-                    //this.Close();
+                    Pricipal form = new Pricipal(fecha, ds);
+                    form.Show();
+                    this.Close();
                 }
             }
         }
@@ -87,9 +98,9 @@ namespace ElGranPollo
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    /*Pantalla2 form = new Pantalla2(fecha, ds,band,operador);
+                    Pricipal form = new Pricipal(fecha, ds);
                     form.Show();
-                    this.Close();*/
+                    this.Close();
                 }
                 else
                 {
