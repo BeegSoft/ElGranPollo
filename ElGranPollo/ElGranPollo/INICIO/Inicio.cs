@@ -15,25 +15,18 @@ namespace ElGranPollo
 {
     public partial class Inicio : Form
     {
-        public Inicio(string ds)
+        public Inicio(string ds, int band, string operador)
         {
-            //---------
-            Thread t = new Thread(new ThreadStart(splashtart));
-            t.Start();
-            Thread.Sleep(5000);
+            
             InitializeComponent();
-            t.Abort();
-            //---------
-            this.ds = ds;            
+            this.ds = ds;
+            this.band = band;
+            this.operador = operador;
         }
-
-        private void splashtart()
-        {
-            Application.Run(new Form2(ds));
-        }
-
         //CONEXION
-        string ds;
+        int band;
+        string ds, operador;
+        
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime fechahoy = DateTime.Now;
@@ -64,7 +57,7 @@ namespace ElGranPollo
                 cmd.ExecuteNonQuery();
 
                 conexion.Close();
-                Pricipal form = new Pricipal(fecha, ds);
+                Pricipal form = new Pricipal(fecha, ds,band);
                 form.Show();
                 this.Close();
             }
@@ -74,7 +67,7 @@ namespace ElGranPollo
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    Pricipal form = new Pricipal(fecha, ds);
+                    Pricipal form = new Pricipal(fecha, ds,band);
                     form.Show();
                     this.Close();
                 }
@@ -98,7 +91,7 @@ namespace ElGranPollo
 
                 if (Convert.ToInt32(compro) != 0)
                 {
-                    Pricipal form = new Pricipal(fecha, ds);
+                    Pricipal form = new Pricipal(fecha, ds,band);
                     form.Show();
                     this.Close();
                 }
@@ -113,9 +106,26 @@ namespace ElGranPollo
             }            
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Historial form = new Historial(ds);
+            form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Menu form = new Menu(ds);
+            form.Show();
+        }
+
         private void Inicio_Load(object sender, EventArgs e)
         {
-           
+            if (band == 3)
+            {
+                button3.Visible = false;
+                button4.Visible = false;
+                //button5.Visible = false;
+            }
         }
 
         /*private void button4_Click(object sender, EventArgs e)

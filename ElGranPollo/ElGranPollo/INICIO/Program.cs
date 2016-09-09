@@ -17,15 +17,15 @@ namespace ElGranPollo
         {
             //CONEXION PARA LA BASE DE DATOS
             string ds = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/ElGranPollo/ElGranPollo/ElGranPollo/base.mdb";
-            string fecha="";
+            
 
             //CONEXION PARA LOS USUARIOS
-            //string ds2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/ElGranPollo/ElGranPollo/ElGranPollo/Usuarios.mdb";
+            string ds2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:/ElGranPollo/ElGranPollo/ElGranPollo/Usuarios.mdb";
             
             //  h   ola
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pricipal(fecha,ds));
+            Application.Run(new Control_acceso(ds,ds2));
             //Algo
         }
     }

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ESTADISTICAS\Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Gastos.Designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Historial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu_agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu_agregar.Designer.cs">
+      <DependentUpon>Menu_agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu_modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu_modificar.Designer.cs">
+      <DependentUpon>Menu_modificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ORDENES\IForm.cs" />
     <Compile Include="ORDENES\CrearTicket.cs" />
     <Compile Include="LOGIN\Encriptado.cs" />
@@ -93,6 +124,12 @@
     <Compile Include="LOGIN\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ESTADISTICAS\Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ESTADISTICAS\Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LOGIN\Control_acceso.resx">
       <DependentUpon>Control_acceso.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +141,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN\Nuevo_usuario.resx">
       <DependentUpon>Nuevo_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu_agregar.resx">
+      <DependentUpon>Menu_agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu_modificar.resx">
+      <DependentUpon>Menu_modificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ORDENES\pagar.resx">
       <DependentUpon>pagar.cs</DependentUpon>
@@ -244,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\descarga.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

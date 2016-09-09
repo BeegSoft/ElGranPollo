@@ -68,14 +68,14 @@ namespace ElGranPollo
 
         private void AbrirProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*Inicio corre = new Inicio(ds,band,operador);
+            Inicio corre = new Inicio(ds,band,operador);
             corre.Show();
-            this.Close();*/
+            this.Close();
         }
 
         private void abrirBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/Empanada/BEEGSOFT/empanada_2/empanada_2/baseEmpanadas.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo/base.mdb");
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace ElGranPollo
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/Empanada/BEEGSOFT/empanada_2/empanada_2/UsuariosEmpanadas.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo//Usuarios.mdb");
         }
 
         private void button2_Click(object sender, EventArgs e)
