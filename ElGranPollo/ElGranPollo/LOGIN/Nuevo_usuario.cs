@@ -25,11 +25,6 @@ namespace ElGranPollo
         string ds,ds2;
         int band,id;
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void RESET()
         {
             txtclave.Clear();
