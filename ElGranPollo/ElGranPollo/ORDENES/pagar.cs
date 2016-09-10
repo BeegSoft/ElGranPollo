@@ -176,9 +176,8 @@ namespace ElGranPollo
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {            
-
-            this.Close();
+        {
+            textBox_efectivo.Text = textBox_total.Text;
         }
 
         private void button3_Click(object sender, EventArgs e)
