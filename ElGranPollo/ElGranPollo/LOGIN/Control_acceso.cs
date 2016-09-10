@@ -144,11 +144,53 @@ namespace ElGranPollo
             else if(comboBox1.Text=="OPERADOR")
             {
                 operador = textBox1.Text;
-                band = 3;
-                Inicio form = new Inicio(ds);                
-                LIMPIAR();
-                form.Show();
-                this.Hide();
+                band = 3;                
+                              
+                LIMPIAR();                
+
+                DateTime fechahoy = DateTime.Now;
+                string fecha = fechahoy.ToString("d");
+
+                string var1 = fecha;
+                var1 = var1.Substring(0, 2);
+
+                string var2 = fecha;
+                var2 = var2.Substring(3, 2);
+
+                string var3 = fecha;
+                var3 = var3.Substring(6, 4);
+
+                //juntando las cadenas
+                string fechacompleta = string.Concat(var3, var2, var1);
+                int fechanum = Convert.ToInt32(fechacompleta);
+                try
+                {
+                    OleDbConnection conexion = new OleDbConnection(ds);
+
+                    conexion.Open();
+                    string insertar = "INSERT INTO FECHA (fecha, id) VALUES (@fecha, @id)";
+                    OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                    cmd.Parameters.AddWithValue("@fecha", fecha);
+                    cmd.Parameters.AddWithValue("@id", fechanum);
+
+                    cmd.ExecuteNonQuery();
+
+                    conexion.Close();
+                    Pricipal form = new Pricipal(fecha, ds, band);
+                    form.Show();
+                    this.Close();
+                }
+
+                catch (Exception)
+                {
+                    DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Pricipal form = new Pricipal(fecha, ds, band);
+                        form.Show();
+                        this.Close();
+                    }
+                }
             }
         }
 

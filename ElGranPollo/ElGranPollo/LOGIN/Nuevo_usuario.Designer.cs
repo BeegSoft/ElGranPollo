@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo_usuario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbotipo = new System.Windows.Forms.ComboBox();
             this.txtclave = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,11 +55,21 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(275, 253);
+            this.groupBox1.Size = new System.Drawing.Size(214, 262);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserte Datos";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(62, 186);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // cbotipo
             // 
@@ -67,7 +77,7 @@
             this.cbotipo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "OPERADOR"});
-            this.cbotipo.Location = new System.Drawing.Point(86, 114);
+            this.cbotipo.Location = new System.Drawing.Point(23, 156);
             this.cbotipo.Name = "cbotipo";
             this.cbotipo.Size = new System.Drawing.Size(162, 24);
             this.cbotipo.TabIndex = 7;
@@ -76,7 +86,7 @@
             // txtclave
             // 
             this.txtclave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtclave.Location = new System.Drawing.Point(86, 70);
+            this.txtclave.Location = new System.Drawing.Point(23, 102);
             this.txtclave.Name = "txtclave";
             this.txtclave.Size = new System.Drawing.Size(162, 22);
             this.txtclave.TabIndex = 6;
@@ -84,7 +94,7 @@
             // txtnombre
             // 
             this.txtnombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtnombre.Location = new System.Drawing.Point(86, 26);
+            this.txtnombre.Location = new System.Drawing.Point(23, 48);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(162, 22);
             this.txtnombre.TabIndex = 5;
@@ -92,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 117);
+            this.label4.Location = new System.Drawing.Point(20, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 3;
@@ -101,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 73);
+            this.label3.Location = new System.Drawing.Point(20, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 2;
@@ -116,23 +126,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(101, 162);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 84);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Nuevo_usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(306, 286);
+            this.ClientSize = new System.Drawing.Size(239, 285);
             this.Controls.Add(this.groupBox1);
             this.Name = "Nuevo_usuario";
             this.Text = "NUEVO USUARIO";
