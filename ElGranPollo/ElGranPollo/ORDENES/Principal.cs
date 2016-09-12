@@ -36,6 +36,7 @@ namespace ElGranPollo
 
         string fecha, ds;
         int band;
+        int MedioPollo, Pollo, PolloYMedio, DosPollos;
         private void radioButton1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
@@ -82,37 +83,30 @@ namespace ElGranPollo
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Pollo = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PolloYMedio = 1;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DosPollos = 1;
+        }
+
         private void button9_Click(object sender, EventArgs e)
         {
             groupBox5.Enabled = true;
         }
-
-        private void SELECT_PLATILLOS()
-        {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_platillo,nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id, ds);
-
-            DataSet dataset = new DataSet();
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(dataset);
-            tabla = dataset.Tables[0];
-            this.listView_platillos.Items.Clear();
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                DataRow filas = tabla.Rows[i];
-                ListViewItem elemntos = new ListViewItem(filas["id_platillo"].ToString());
-                elemntos.SubItems.Add(filas["nombre_platillo"].ToString());
-                elemntos.SubItems.Add(filas["cantidad"].ToString());
-                elemntos.SubItems.Add(filas["pagar"].ToString());
-
-                listView_platillos.Items.Add(elemntos);
-            }
-
-        }
+        
 
         private void SELECT_HISTORIAL()
         {
-            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, descripcion, total_pagar FROM ORDEN WHERE checador = 1 and fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, observacion, total FROM ORDEN WHERE fecha = '" + fecha + "'", ds);
 
             DataSet dataset5 = new DataSet();
             DataTable tabla5 = new DataTable();
@@ -124,11 +118,16 @@ namespace ElGranPollo
             {
                 DataRow filas2 = tabla5.Rows[i];
                 ListViewItem elemntos5 = new ListViewItem(filas2["id_orden"].ToString());
-                elemntos5.SubItems.Add(filas2["descripcion"].ToString());
-                elemntos5.SubItems.Add(filas2["total_pagar"].ToString());
+                elemntos5.SubItems.Add(filas2["observacion"].ToString());
+                elemntos5.SubItems.Add(filas2["total"].ToString());
 
                 listView_Historial.Items.Add(elemntos5);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MedioPollo = 1;
         }
 
         private void Pricipal_Load(object sender, EventArgs e)
@@ -143,8 +142,6 @@ namespace ElGranPollo
                 groupBox4.Visible = false;
                 listView_Historial.Location = new Point(123, 68);
             }
-
-            SELECT_PLATILLOS();
 
             SELECT_HISTORIAL();
 

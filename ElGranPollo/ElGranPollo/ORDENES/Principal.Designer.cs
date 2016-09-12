@@ -87,12 +87,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.listView_Historial = new System.Windows.Forms.ListView();
             this.column_ordenes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader_descripcion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -149,6 +149,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
@@ -179,7 +180,7 @@
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Image = global::ElGranPollo.Properties.Resources.accept;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.Location = new System.Drawing.Point(498, 171);
+            this.button9.Location = new System.Drawing.Point(524, 195);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(99, 36);
             this.button9.TabIndex = 90;
@@ -198,7 +199,7 @@
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Image = global::ElGranPollo.Properties.Resources.delete;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.Location = new System.Drawing.Point(498, 126);
+            this.button8.Location = new System.Drawing.Point(524, 150);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(99, 36);
             this.button8.TabIndex = 89;
@@ -216,7 +217,7 @@
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Image = global::ElGranPollo.Properties.Resources.delete;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(498, 77);
+            this.button7.Location = new System.Drawing.Point(524, 101);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(99, 36);
             this.button7.TabIndex = 88;
@@ -388,9 +389,9 @@
             this.column_platillo,
             this.column_cantidad});
             this.listView_platillos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_platillos.Location = new System.Drawing.Point(275, 50);
+            this.listView_platillos.Location = new System.Drawing.Point(241, 54);
             this.listView_platillos.Name = "listView_platillos";
-            this.listView_platillos.Size = new System.Drawing.Size(206, 157);
+            this.listView_platillos.Size = new System.Drawing.Size(202, 118);
             this.listView_platillos.TabIndex = 83;
             this.listView_platillos.UseCompatibleStateImageBehavior = false;
             this.listView_platillos.View = System.Windows.Forms.View.Details;
@@ -402,12 +403,12 @@
             // 
             // column_platillo
             // 
-            this.column_platillo.Text = "Platillo";
+            this.column_platillo.Text = "Descripcion";
             this.column_platillo.Width = 95;
             // 
             // column_cantidad
             // 
-            this.column_cantidad.Text = "Cantidad";
+            this.column_cantidad.Text = "Total";
             this.column_cantidad.Width = 70;
             // 
             // groupBox3
@@ -422,7 +423,7 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(106, 48);
+            this.groupBox3.Location = new System.Drawing.Point(106, 43);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(129, 159);
             this.groupBox3.TabIndex = 82;
@@ -554,6 +555,7 @@
             this.button4.TabIndex = 81;
             this.button4.Text = "2";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -570,6 +572,7 @@
             this.button2.TabIndex = 80;
             this.button2.Text = "1 y 1/2";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -586,6 +589,7 @@
             this.button1.TabIndex = 79;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -602,6 +606,7 @@
             this.button3.TabIndex = 78;
             this.button3.Text = "1/2";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
@@ -787,13 +792,12 @@
             // 
             this.listView_Historial.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_ordenes,
-            this.columnHeader_descripcion,
-            this.columnHeader_total,
-            this.columnHeader1});
+            this.columnHeader1,
+            this.columnHeader_total});
             this.listView_Historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_Historial.Location = new System.Drawing.Point(228, 64);
             this.listView_Historial.Name = "listView_Historial";
-            this.listView_Historial.Size = new System.Drawing.Size(291, 319);
+            this.listView_Historial.Size = new System.Drawing.Size(262, 319);
             this.listView_Historial.TabIndex = 7;
             this.listView_Historial.UseCompatibleStateImageBehavior = false;
             this.listView_Historial.View = System.Windows.Forms.View.Details;
@@ -803,20 +807,15 @@
             this.column_ordenes.Text = "Orden";
             this.column_ordenes.Width = 50;
             // 
-            // columnHeader_descripcion
-            // 
-            this.columnHeader_descripcion.Text = "Descripcion";
-            this.columnHeader_descripcion.Width = 83;
-            // 
             // columnHeader_total
             // 
             this.columnHeader_total.Text = "Total";
-            this.columnHeader_total.Width = 49;
+            this.columnHeader_total.Width = 55;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Observaciones";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 150;
             // 
             // label3
             // 
@@ -847,6 +846,24 @@
             this.label1.Size = new System.Drawing.Size(200, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "El Gran Pollo";
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Image = global::ElGranPollo.Properties.Resources.accept;
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button13.Location = new System.Drawing.Point(253, 178);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(91, 28);
+            this.button13.TabIndex = 91;
+            this.button13.Text = "Agregar";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.UseVisualStyleBackColor = false;
             // 
             // Pricipal
             // 
@@ -907,7 +924,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListView listView_Historial;
         private System.Windows.Forms.ColumnHeader column_ordenes;
-        private System.Windows.Forms.ColumnHeader columnHeader_descripcion;
         private System.Windows.Forms.ColumnHeader columnHeader_total;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label9;
@@ -950,5 +966,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
