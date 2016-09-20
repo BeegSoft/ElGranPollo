@@ -89,7 +89,7 @@ namespace ElGranPollo
 
         private void SELECT_PLATILLOS()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_platillo,nombre_platillo,cantidad,pagar FROM PLATILLO WHERE id_orden = " + id, ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_platillo,nombre_platillo,cantidad,pagar FROM PLATILLO ", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -131,6 +131,11 @@ namespace ElGranPollo
             }
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void Pricipal_Load(object sender, EventArgs e)
         {
             
@@ -144,9 +149,9 @@ namespace ElGranPollo
                 listView_Historial.Location = new Point(123, 68);
             }
 
-            SELECT_PLATILLOS();
+            //SELECT_PLATILLOS();
 
-            SELECT_HISTORIAL();
+            //SELECT_HISTORIAL();
 
         }
     }
