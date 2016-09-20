@@ -34,8 +34,131 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-        string fecha, ds;
+        string fecha,fecha_ale, ds;
         int band;
+        int MedioPollo=0, Pollo=0, PolloYMedio=0, DosPollos=0;
+
+        private void Pricipal_Load(object sender, EventArgs e)
+        {
+
+            if (band == 3)
+            {
+                estadisticasToolStripMenuItem.Visible = false;
+                gastosToolStripMenuItem.Visible = false;
+
+                button12.Visible = false;
+                groupBox4.Visible = false;
+                listView_Historial.Location = new Point(123, 68);
+            }
+
+            SELECT_HISTORIAL(fecha);
+
+        }
+
+        private void radioButton3_Click(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton4_Click(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton5_Click(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton6_Click(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton10_Click(object sender, EventArgs e)
+        {
+            if (radioButton10.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton8_Click(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton7_Click(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fecha_ale = dateTimePicker1.Text;
+            SELECT_HISTORIAL(fecha_ale);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lista in listView_fechas.SelectedItems)
+            {
+                fecha_ale = lista.Text;                
+            }
+            SELECT_HISTORIAL(fecha_ale);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            SELECT_HISTORIAL(fecha);
+        }
+
         private void radioButton1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
@@ -86,6 +209,7 @@ namespace ElGranPollo
         {
             groupBox5.Enabled = true;
         }
+<<<<<<< HEAD
 
         private void SELECT_PLATILLOS()
         {
@@ -111,8 +235,12 @@ namespace ElGranPollo
         }
 
         private void SELECT_HISTORIAL()
+=======
+        
+        private void SELECT_HISTORIAL(string date)
+>>>>>>> 646ef7272f697e55c6c8dcb328e691583e983266
         {
-            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, descripcion, total_pagar FROM ORDEN WHERE checador = 1 and fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, observacion, total FROM ORDEN WHERE fecha = '" + date + "'", ds);
 
             DataSet dataset5 = new DataSet();
             DataTable tabla5 = new DataTable();
@@ -124,11 +252,12 @@ namespace ElGranPollo
             {
                 DataRow filas2 = tabla5.Rows[i];
                 ListViewItem elemntos5 = new ListViewItem(filas2["id_orden"].ToString());
-                elemntos5.SubItems.Add(filas2["descripcion"].ToString());
-                elemntos5.SubItems.Add(filas2["total_pagar"].ToString());
+                elemntos5.SubItems.Add(filas2["observacion"].ToString());
+                elemntos5.SubItems.Add(filas2["total"].ToString());
 
                 listView_Historial.Items.Add(elemntos5);
             }
+<<<<<<< HEAD
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -154,5 +283,10 @@ namespace ElGranPollo
             //SELECT_HISTORIAL();
 
         }
+=======
+
+            label3.Text = date;
+        }        
+>>>>>>> 646ef7272f697e55c6c8dcb328e691583e983266
     }
 }
