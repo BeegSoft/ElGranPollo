@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12E8A83A-1247-4010-BB92-A9070F7494A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElGranPollo</RootNamespace>
+    <AssemblyName>ElGranPollo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ESTADISTICAS\Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Gastos.Designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Historial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ESTADISTICAS\Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu_agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu_agregar.Designer.cs">
+      <DependentUpon>Menu_agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU\Menu_modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU\Menu_modificar.Designer.cs">
+      <DependentUpon>Menu_modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORDENES\IForm.cs" />
+    <Compile Include="ORDENES\CrearTicket.cs" />
+    <Compile Include="LOGIN\Encriptado.cs" />
+    <Compile Include="LOGIN\Control_acceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\Control_acceso.Designer.cs">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INICIO\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INICIO\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INICIO\Program.cs" />
+    <Compile Include="LOGIN\Nuevo_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\Nuevo_usuario.Designer.cs">
+      <DependentUpon>Nuevo_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORDENES\pagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ORDENES\pagar.Designer.cs">
+      <DependentUpon>pagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORDENES\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ORDENES\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LOGIN\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ESTADISTICAS\Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ESTADISTICAS\Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN\Control_acceso.resx">
+      <DependentUpon>Control_acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INICIO\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN\Nuevo_usuario.resx">
+      <DependentUpon>Nuevo_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu_agregar.resx">
+      <DependentUpon>Menu_agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU\Menu_modificar.resx">
+      <DependentUpon>Menu_modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ORDENES\pagar.resx">
+      <DependentUpon>pagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ORDENES\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="LOGIN\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\.facebook_14601202557931.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_female_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\almacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bdd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_male_users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mostrar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shut_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picasion.com_486ae478bb1e5c7f9f0eac83a104f497.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pollo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pollo_converted.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cafe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cebada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicharron-salsa-roja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cochinita.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comanda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frijol.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horchata.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jamaica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificar1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nopal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\otros.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picadillo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\queso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tamarindo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tinga de pollo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\descarga.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
