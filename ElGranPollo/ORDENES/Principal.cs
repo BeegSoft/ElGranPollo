@@ -51,7 +51,7 @@ namespace ElGranPollo
                 listView_Historial.Location = new Point(123, 68);
             }
 
-            SELECT_HISTORIAL(fecha);
+           // SELECT_HISTORIAL(fecha);
 
         }
 
