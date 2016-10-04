@@ -237,6 +237,11 @@ namespace ElGranPollo
             METODOCOMBO();
         }
 
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void METODOCOMBO()
         {
             //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS

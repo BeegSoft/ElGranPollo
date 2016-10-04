@@ -34,8 +34,8 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-        string fecha,fecha_ale, ds, nombre_platillo;
-        int band, id_orden, precio_pagar;
+        string fecha,fecha_ale, ds, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
+        int band, id_orden, precio_pagar, cantidad_extras, extras_neto;
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
@@ -158,8 +158,51 @@ namespace ElGranPollo
 
         }
 
+        private void radio_medio_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //BOTON DE TERMINAR
         private void button7_Click(object sender, EventArgs e)
         {
+            //Agregar los datos seleccionados a la base de datos
+
+            /*===============Seleccion de cantidad de pollo=====================*/
+            if (radio_medio.Checked == true) opcion_cantidad_pollo = "medio";
+
+            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "uno";
+
+            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "unomedio";
+
+            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "dos";
+
+            /*==============Seleccion de tipo de pollo==========================*/
+            if (radio_adobado.Checked == true) opcion_tipo_pollo = "adobado";
+
+            else if (radio_chiltepin.Checked == true) opcion_tipo_pollo = "chiltepin";
+
+            else if (radio_chipotle.Checked == true) opcion_tipo_pollo = "chipotle";
+
+
+            /*=================SELECCION DE EXTRAS==================================*/
+
+            cantidad_extras = Convert.ToInt32(extra_cebolla.Value) + Convert.ToInt32(extra_ensalada.Value) + Convert.ToInt32(extra_frijol.Value) + Convert.ToInt32(extra_salsa.Value) + Convert.ToInt32(extra_tortilla.Value);
+
+            if(cantidad_extras > 5)
+            {
+                extras_neto = cantidad_extras - 5;
+            }
+
+
+
+            //Guardar los datos de domicilio si es que se habilitó el boton de pedido a domicilio
+
+            //Borrar datos de los campos una vez que ya se hayan guardado
+
+            //Obtener el ID de orden
+
+
             //Preguntar si desea terminar la orden
             DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultado == DialogResult.Yes)
@@ -185,6 +228,7 @@ namespace ElGranPollo
             }
         }
 
+        //Metodo para poner las opciones del pedido en DEFAULT
         private void LIMPIEZA()
         {
             //POLLOS
@@ -199,21 +243,21 @@ namespace ElGranPollo
             radio_chipotle.Checked = false;
 
             //EXTRAS
-            tortilla.Value = 1;
-            salsa.Value = 1;
-            ensalada.Value = 1;
-            frijol.Value = 1;
-            cebolla.Value = 1;
+            extra_tortilla.Value = 1;
+            extra_salsa.Value = 1;
+            extra_ensalada.Value = 1;
+            extra_frijol.Value = 1;
+            extra_cebolla.Value = 1;
 
         }
 
-        
-
+        //Boton de fecha actual
         private void button12_Click(object sender, EventArgs e)
         {
             SELECT_HISTORIAL(fecha);
         }
 
+        //Radio de buscar fecha
         private void radioButton1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
@@ -237,6 +281,7 @@ namespace ElGranPollo
             }
         }
 
+        //Radio de TABLA DE FECHAS
         private void radioButton2_Click(object sender, EventArgs e)
         {
             if (radioButton2.Checked)
@@ -260,6 +305,7 @@ namespace ElGranPollo
             }
         }
 
+        //Boton para habilitar campos de domicilio
         private void button9_Click(object sender, EventArgs e)
         {
             groupBox5.Enabled = true;
