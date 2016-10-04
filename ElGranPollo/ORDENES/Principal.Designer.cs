@@ -34,7 +34,15 @@
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.radio_chipotle = new System.Windows.Forms.RadioButton();
+            this.radio_chiltepin = new System.Windows.Forms.RadioButton();
+            this.radio_adobado = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.radio_dos = new System.Windows.Forms.RadioButton();
+            this.radio_unomedio = new System.Windows.Forms.RadioButton();
+            this.radio_uno = new System.Windows.Forms.RadioButton();
+            this.radio_medio = new System.Windows.Forms.RadioButton();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -54,11 +62,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tortilla = new System.Windows.Forms.NumericUpDown();
+            this.frijol = new System.Windows.Forms.NumericUpDown();
+            this.cebolla = new System.Windows.Forms.NumericUpDown();
+            this.ensalada = new System.Windows.Forms.NumericUpDown();
+            this.salsa = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -84,28 +92,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tortilla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frijol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cebolla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ensalada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salsa)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -129,6 +128,7 @@
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "&Menu";
+            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -153,7 +153,6 @@
             this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox6);
-            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
@@ -168,23 +167,114 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Area de Ventas";
             // 
-            // button13
+            // groupBox7
             // 
-            this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Image = global::ElGranPollo.Properties.Resources.accept;
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button13.Location = new System.Drawing.Point(398, 105);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(91, 28);
-            this.button13.TabIndex = 91;
-            this.button13.Text = "Agregar";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = false;
+            this.groupBox7.Controls.Add(this.radio_chipotle);
+            this.groupBox7.Controls.Add(this.radio_chiltepin);
+            this.groupBox7.Controls.Add(this.radio_adobado);
+            this.groupBox7.Location = new System.Drawing.Point(100, 39);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(125, 142);
+            this.groupBox7.TabIndex = 93;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Tipo de Pollo";
+            // 
+            // radio_chipotle
+            // 
+            this.radio_chipotle.AutoSize = true;
+            this.radio_chipotle.Location = new System.Drawing.Point(8, 99);
+            this.radio_chipotle.Name = "radio_chipotle";
+            this.radio_chipotle.Size = new System.Drawing.Size(83, 20);
+            this.radio_chipotle.TabIndex = 5;
+            this.radio_chipotle.TabStop = true;
+            this.radio_chipotle.Text = "Chipotle";
+            this.radio_chipotle.UseVisualStyleBackColor = true;
+            this.radio_chipotle.Click += new System.EventHandler(this.radioButton7_Click);
+            // 
+            // radio_chiltepin
+            // 
+            this.radio_chiltepin.AutoSize = true;
+            this.radio_chiltepin.Location = new System.Drawing.Point(8, 61);
+            this.radio_chiltepin.Name = "radio_chiltepin";
+            this.radio_chiltepin.Size = new System.Drawing.Size(86, 20);
+            this.radio_chiltepin.TabIndex = 4;
+            this.radio_chiltepin.TabStop = true;
+            this.radio_chiltepin.Text = "Chiltepin";
+            this.radio_chiltepin.UseVisualStyleBackColor = true;
+            this.radio_chiltepin.Click += new System.EventHandler(this.radioButton8_Click);
+            // 
+            // radio_adobado
+            // 
+            this.radio_adobado.AutoSize = true;
+            this.radio_adobado.Location = new System.Drawing.Point(8, 25);
+            this.radio_adobado.Name = "radio_adobado";
+            this.radio_adobado.Size = new System.Drawing.Size(90, 20);
+            this.radio_adobado.TabIndex = 2;
+            this.radio_adobado.TabStop = true;
+            this.radio_adobado.Text = "Adobado";
+            this.radio_adobado.UseVisualStyleBackColor = true;
+            this.radio_adobado.Click += new System.EventHandler(this.radioButton10_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.radio_dos);
+            this.groupBox6.Controls.Add(this.radio_unomedio);
+            this.groupBox6.Controls.Add(this.radio_uno);
+            this.groupBox6.Controls.Add(this.radio_medio);
+            this.groupBox6.Location = new System.Drawing.Point(12, 39);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(76, 142);
+            this.groupBox6.TabIndex = 92;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Pollo";
+            // 
+            // radio_dos
+            // 
+            this.radio_dos.AutoSize = true;
+            this.radio_dos.Location = new System.Drawing.Point(8, 104);
+            this.radio_dos.Name = "radio_dos";
+            this.radio_dos.Size = new System.Drawing.Size(34, 20);
+            this.radio_dos.TabIndex = 5;
+            this.radio_dos.TabStop = true;
+            this.radio_dos.Text = "2";
+            this.radio_dos.UseVisualStyleBackColor = true;
+            this.radio_dos.Click += new System.EventHandler(this.radioButton6_Click);
+            // 
+            // radio_unomedio
+            // 
+            this.radio_unomedio.AutoSize = true;
+            this.radio_unomedio.Location = new System.Drawing.Point(8, 78);
+            this.radio_unomedio.Name = "radio_unomedio";
+            this.radio_unomedio.Size = new System.Drawing.Size(59, 20);
+            this.radio_unomedio.TabIndex = 4;
+            this.radio_unomedio.TabStop = true;
+            this.radio_unomedio.Text = "1 1/2";
+            this.radio_unomedio.UseVisualStyleBackColor = true;
+            this.radio_unomedio.Click += new System.EventHandler(this.radioButton5_Click);
+            // 
+            // radio_uno
+            // 
+            this.radio_uno.AutoSize = true;
+            this.radio_uno.Location = new System.Drawing.Point(8, 51);
+            this.radio_uno.Name = "radio_uno";
+            this.radio_uno.Size = new System.Drawing.Size(34, 20);
+            this.radio_uno.TabIndex = 3;
+            this.radio_uno.TabStop = true;
+            this.radio_uno.Text = "1";
+            this.radio_uno.UseVisualStyleBackColor = true;
+            this.radio_uno.Click += new System.EventHandler(this.radioButton4_Click);
+            // 
+            // radio_medio
+            // 
+            this.radio_medio.AutoSize = true;
+            this.radio_medio.Location = new System.Drawing.Point(8, 25);
+            this.radio_medio.Name = "radio_medio";
+            this.radio_medio.Size = new System.Drawing.Size(47, 20);
+            this.radio_medio.TabIndex = 2;
+            this.radio_medio.TabStop = true;
+            this.radio_medio.Text = "1/2";
+            this.radio_medio.UseVisualStyleBackColor = true;
+            this.radio_medio.Click += new System.EventHandler(this.radioButton3_Click);
             // 
             // button9
             // 
@@ -240,6 +330,7 @@
             this.button7.Text = "Terminar";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // groupBox5
             // 
@@ -400,11 +491,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.numericUpDown5);
-            this.groupBox3.Controls.Add(this.numericUpDown4);
-            this.groupBox3.Controls.Add(this.numericUpDown3);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
+            this.groupBox3.Controls.Add(this.tortilla);
+            this.groupBox3.Controls.Add(this.frijol);
+            this.groupBox3.Controls.Add(this.cebolla);
+            this.groupBox3.Controls.Add(this.ensalada);
+            this.groupBox3.Controls.Add(this.salsa);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label8);
@@ -417,61 +508,61 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Extras";
             // 
-            // numericUpDown5
+            // tortilla
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(82, 130);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(41, 22);
-            this.numericUpDown5.TabIndex = 95;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            this.tortilla.Location = new System.Drawing.Point(82, 130);
+            this.tortilla.Name = "tortilla";
+            this.tortilla.Size = new System.Drawing.Size(41, 22);
+            this.tortilla.TabIndex = 95;
+            this.tortilla.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown4
+            // frijol
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(82, 102);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(41, 22);
-            this.numericUpDown4.TabIndex = 94;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.frijol.Location = new System.Drawing.Point(82, 102);
+            this.frijol.Name = "frijol";
+            this.frijol.Size = new System.Drawing.Size(41, 22);
+            this.frijol.TabIndex = 94;
+            this.frijol.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown3
+            // cebolla
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(82, 75);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(41, 22);
-            this.numericUpDown3.TabIndex = 93;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.cebolla.Location = new System.Drawing.Point(82, 75);
+            this.cebolla.Name = "cebolla";
+            this.cebolla.Size = new System.Drawing.Size(41, 22);
+            this.cebolla.TabIndex = 93;
+            this.cebolla.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown2
+            // ensalada
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(82, 46);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(41, 22);
-            this.numericUpDown2.TabIndex = 92;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.ensalada.Location = new System.Drawing.Point(82, 46);
+            this.ensalada.Name = "ensalada";
+            this.ensalada.Size = new System.Drawing.Size(41, 22);
+            this.ensalada.TabIndex = 92;
+            this.ensalada.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown1
+            // salsa
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(82, 16);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(41, 22);
-            this.numericUpDown1.TabIndex = 91;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.salsa.Location = new System.Drawing.Point(82, 16);
+            this.salsa.Name = "salsa";
+            this.salsa.Size = new System.Drawing.Size(41, 22);
+            this.salsa.TabIndex = 91;
+            this.salsa.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -483,9 +574,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(8, 133);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 16);
+            this.label17.Size = new System.Drawing.Size(57, 16);
             this.label17.TabIndex = 89;
-            this.label17.Text = "Cebolla";
+            this.label17.Text = "Tortilla";
             // 
             // label18
             // 
@@ -493,9 +584,9 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(8, 104);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 16);
+            this.label18.Size = new System.Drawing.Size(43, 16);
             this.label18.TabIndex = 88;
-            this.label18.Text = "Ensalada";
+            this.label18.Text = "Frijol";
             // 
             // label8
             // 
@@ -759,115 +850,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "El Gran Pollo";
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.radioButton6);
-            this.groupBox6.Controls.Add(this.radioButton5);
-            this.groupBox6.Controls.Add(this.radioButton4);
-            this.groupBox6.Controls.Add(this.radioButton3);
-            this.groupBox6.Location = new System.Drawing.Point(12, 39);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(76, 142);
-            this.groupBox6.TabIndex = 92;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Pollo";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(8, 25);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 20);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "1/2";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Click += new System.EventHandler(this.radioButton3_Click);
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(8, 51);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(34, 20);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "1";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.Click += new System.EventHandler(this.radioButton4_Click);
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(8, 78);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(59, 20);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "1 1/2";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.Click += new System.EventHandler(this.radioButton5_Click);
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(8, 104);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(34, 20);
-            this.radioButton6.TabIndex = 5;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "2";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.Click += new System.EventHandler(this.radioButton6_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.radioButton7);
-            this.groupBox7.Controls.Add(this.radioButton8);
-            this.groupBox7.Controls.Add(this.radioButton10);
-            this.groupBox7.Location = new System.Drawing.Point(100, 39);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(125, 142);
-            this.groupBox7.TabIndex = 93;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Tipo de Pollo";
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(8, 99);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(83, 20);
-            this.radioButton7.TabIndex = 5;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Chipotle";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            this.radioButton7.Click += new System.EventHandler(this.radioButton7_Click);
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(8, 61);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(86, 20);
-            this.radioButton8.TabIndex = 4;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Chiltepin";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.Click += new System.EventHandler(this.radioButton8_Click);
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(8, 25);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(90, 20);
-            this.radioButton10.TabIndex = 2;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Adobado";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            this.radioButton10.Click += new System.EventHandler(this.radioButton10_Click);
-            // 
             // Pricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -885,23 +867,23 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tortilla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frijol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cebolla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ensalada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salsa)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,23 +938,22 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown tortilla;
+        private System.Windows.Forms.NumericUpDown frijol;
+        private System.Windows.Forms.NumericUpDown cebolla;
+        private System.Windows.Forms.NumericUpDown ensalada;
+        private System.Windows.Forms.NumericUpDown salsa;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radio_dos;
+        private System.Windows.Forms.RadioButton radio_unomedio;
+        private System.Windows.Forms.RadioButton radio_uno;
+        private System.Windows.Forms.RadioButton radio_medio;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radio_chipotle;
+        private System.Windows.Forms.RadioButton radio_chiltepin;
+        private System.Windows.Forms.RadioButton radio_adobado;
     }
 }

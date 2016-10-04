@@ -17,13 +17,12 @@ namespace ElGranPollo
 {
     public partial class pagar : Form
     {
-        public pagar(int id_orden, string fecha, string ds,string operador)
+        public pagar(int id_orden, string fecha, string ds)
         {
             InitializeComponent();
             this.id_orden = id_orden;
             this.fecha = fecha;
             this.ds = ds;
-            this.operador = operador;
         }
 
 

@@ -34,9 +34,8 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-        string fecha,fecha_ale, ds;
-        int band;
-        int MedioPollo=0, Pollo=0, PolloYMedio=0, DosPollos=0;
+        string fecha,fecha_ale, ds, nombre_platillo;
+        int band, id_orden, precio_pagar;
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
@@ -51,13 +50,13 @@ namespace ElGranPollo
                 listView_Historial.Location = new Point(123, 68);
             }
 
-            SELECT_HISTORIAL(fecha);
+           // SELECT_HISTORIAL(fecha);
 
         }
 
         private void radioButton3_Click(object sender, EventArgs e)
         {
-            if (radioButton3.Checked)
+            if (radio_medio.Checked)
             {
 
             }
@@ -69,7 +68,7 @@ namespace ElGranPollo
 
         private void radioButton4_Click(object sender, EventArgs e)
         {
-            if (radioButton4.Checked)
+            if (radio_uno.Checked)
             {
 
             }
@@ -81,7 +80,7 @@ namespace ElGranPollo
 
         private void radioButton5_Click(object sender, EventArgs e)
         {
-            if (radioButton5.Checked)
+            if (radio_unomedio.Checked)
             {
 
             }
@@ -93,7 +92,7 @@ namespace ElGranPollo
 
         private void radioButton6_Click(object sender, EventArgs e)
         {
-            if (radioButton6.Checked)
+            if (radio_dos.Checked)
             {
 
             }
@@ -105,7 +104,7 @@ namespace ElGranPollo
 
         private void radioButton10_Click(object sender, EventArgs e)
         {
-            if (radioButton10.Checked)
+            if (radio_adobado.Checked)
             {
 
             }
@@ -117,7 +116,7 @@ namespace ElGranPollo
 
         private void radioButton8_Click(object sender, EventArgs e)
         {
-            if (radioButton8.Checked)
+            if (radio_chiltepin.Checked)
             {
 
             }
@@ -129,7 +128,7 @@ namespace ElGranPollo
 
         private void radioButton7_Click(object sender, EventArgs e)
         {
-            if (radioButton7.Checked)
+            if (radio_chipotle.Checked)
             {
 
             }
@@ -153,6 +152,62 @@ namespace ElGranPollo
             }
             SELECT_HISTORIAL(fecha_ale);
         }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Preguntar si desea terminar la orden
+            DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                OleDbConnection conexion = new OleDbConnection(ds);
+
+                conexion.Open();
+
+                string insertar = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @pagar)";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@id_orden", id_orden);
+                cmd.Parameters.AddWithValue("@nombre_platillo", nombre_platillo);
+                cmd.Parameters.AddWithValue("@pagar", precio_pagar);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Close();
+
+
+                LIMPIEZA();
+                pagar form = new pagar(id_orden, fecha, ds);
+                form.Show();
+            }
+        }
+
+        private void LIMPIEZA()
+        {
+            //POLLOS
+            radio_medio.Checked = true;
+            radio_uno.Checked = false;
+            radio_unomedio.Checked = false;
+            radio_dos.Checked = false;
+
+            //TIPO DE POLLO
+            radio_adobado.Checked = true;
+            radio_chiltepin.Checked = false;
+            radio_chipotle.Checked = false;
+
+            //EXTRAS
+            tortilla.Value = 1;
+            salsa.Value = 1;
+            ensalada.Value = 1;
+            frijol.Value = 1;
+            cebolla.Value = 1;
+
+        }
+
+        
 
         private void button12_Click(object sender, EventArgs e)
         {
