@@ -225,6 +225,16 @@ namespace ElGranPollo
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime fechahoy = DateTime.Now;
+            string fecha = fechahoy.ToString("d");
+            
+            Pricipal form = new Pricipal(fecha, ds, 3);
+            form.Show();
+            this.Hide();
+        }
+
         private void Control_acceso_Load(object sender, EventArgs e)
         {           
         }      
