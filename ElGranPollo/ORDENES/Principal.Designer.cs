@@ -62,11 +62,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tortilla = new System.Windows.Forms.NumericUpDown();
-            this.frijol = new System.Windows.Forms.NumericUpDown();
-            this.cebolla = new System.Windows.Forms.NumericUpDown();
-            this.ensalada = new System.Windows.Forms.NumericUpDown();
-            this.salsa = new System.Windows.Forms.NumericUpDown();
+            this.extra_tortilla = new System.Windows.Forms.NumericUpDown();
+            this.extra_frijol = new System.Windows.Forms.NumericUpDown();
+            this.extra_cebolla = new System.Windows.Forms.NumericUpDown();
+            this.extra_ensalada = new System.Windows.Forms.NumericUpDown();
+            this.extra_salsa = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -98,11 +98,11 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tortilla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frijol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cebolla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ensalada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salsa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_tortilla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_frijol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_cebolla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_ensalada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_salsa)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -274,6 +274,7 @@
             this.radio_medio.TabStop = true;
             this.radio_medio.Text = "1/2";
             this.radio_medio.UseVisualStyleBackColor = true;
+            this.radio_medio.CheckedChanged += new System.EventHandler(this.radio_medio_CheckedChanged);
             this.radio_medio.Click += new System.EventHandler(this.radioButton3_Click);
             // 
             // button9
@@ -491,11 +492,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.tortilla);
-            this.groupBox3.Controls.Add(this.frijol);
-            this.groupBox3.Controls.Add(this.cebolla);
-            this.groupBox3.Controls.Add(this.ensalada);
-            this.groupBox3.Controls.Add(this.salsa);
+            this.groupBox3.Controls.Add(this.extra_tortilla);
+            this.groupBox3.Controls.Add(this.extra_frijol);
+            this.groupBox3.Controls.Add(this.extra_cebolla);
+            this.groupBox3.Controls.Add(this.extra_ensalada);
+            this.groupBox3.Controls.Add(this.extra_salsa);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label8);
@@ -508,61 +509,61 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Extras";
             // 
-            // tortilla
+            // extra_tortilla
             // 
-            this.tortilla.Location = new System.Drawing.Point(82, 130);
-            this.tortilla.Name = "tortilla";
-            this.tortilla.Size = new System.Drawing.Size(41, 22);
-            this.tortilla.TabIndex = 95;
-            this.tortilla.Value = new decimal(new int[] {
+            this.extra_tortilla.Location = new System.Drawing.Point(82, 130);
+            this.extra_tortilla.Name = "extra_tortilla";
+            this.extra_tortilla.Size = new System.Drawing.Size(41, 22);
+            this.extra_tortilla.TabIndex = 95;
+            this.extra_tortilla.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // frijol
+            // extra_frijol
             // 
-            this.frijol.Location = new System.Drawing.Point(82, 102);
-            this.frijol.Name = "frijol";
-            this.frijol.Size = new System.Drawing.Size(41, 22);
-            this.frijol.TabIndex = 94;
-            this.frijol.Value = new decimal(new int[] {
+            this.extra_frijol.Location = new System.Drawing.Point(82, 102);
+            this.extra_frijol.Name = "extra_frijol";
+            this.extra_frijol.Size = new System.Drawing.Size(41, 22);
+            this.extra_frijol.TabIndex = 94;
+            this.extra_frijol.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // cebolla
+            // extra_cebolla
             // 
-            this.cebolla.Location = new System.Drawing.Point(82, 75);
-            this.cebolla.Name = "cebolla";
-            this.cebolla.Size = new System.Drawing.Size(41, 22);
-            this.cebolla.TabIndex = 93;
-            this.cebolla.Value = new decimal(new int[] {
+            this.extra_cebolla.Location = new System.Drawing.Point(82, 75);
+            this.extra_cebolla.Name = "extra_cebolla";
+            this.extra_cebolla.Size = new System.Drawing.Size(41, 22);
+            this.extra_cebolla.TabIndex = 93;
+            this.extra_cebolla.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // ensalada
+            // extra_ensalada
             // 
-            this.ensalada.Location = new System.Drawing.Point(82, 46);
-            this.ensalada.Name = "ensalada";
-            this.ensalada.Size = new System.Drawing.Size(41, 22);
-            this.ensalada.TabIndex = 92;
-            this.ensalada.Value = new decimal(new int[] {
+            this.extra_ensalada.Location = new System.Drawing.Point(82, 46);
+            this.extra_ensalada.Name = "extra_ensalada";
+            this.extra_ensalada.Size = new System.Drawing.Size(41, 22);
+            this.extra_ensalada.TabIndex = 92;
+            this.extra_ensalada.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // salsa
+            // extra_salsa
             // 
-            this.salsa.Location = new System.Drawing.Point(82, 16);
-            this.salsa.Name = "salsa";
-            this.salsa.Size = new System.Drawing.Size(41, 22);
-            this.salsa.TabIndex = 91;
-            this.salsa.Value = new decimal(new int[] {
+            this.extra_salsa.Location = new System.Drawing.Point(82, 16);
+            this.extra_salsa.Name = "extra_salsa";
+            this.extra_salsa.Size = new System.Drawing.Size(41, 22);
+            this.extra_salsa.TabIndex = 91;
+            this.extra_salsa.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -875,11 +876,11 @@
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tortilla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frijol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cebolla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ensalada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salsa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_tortilla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_frijol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_cebolla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_ensalada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.extra_salsa)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -938,11 +939,11 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown tortilla;
-        private System.Windows.Forms.NumericUpDown frijol;
-        private System.Windows.Forms.NumericUpDown cebolla;
-        private System.Windows.Forms.NumericUpDown ensalada;
-        private System.Windows.Forms.NumericUpDown salsa;
+        private System.Windows.Forms.NumericUpDown extra_tortilla;
+        private System.Windows.Forms.NumericUpDown extra_frijol;
+        private System.Windows.Forms.NumericUpDown extra_cebolla;
+        private System.Windows.Forms.NumericUpDown extra_ensalada;
+        private System.Windows.Forms.NumericUpDown extra_salsa;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button12;
