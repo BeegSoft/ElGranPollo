@@ -96,7 +96,7 @@ namespace ElGranPollo
                 cmd.ExecuteNonQuery();
 
                 conexion.Close();
-                Pricipal form = new Pricipal(fecha, ds, band);
+                Pricipal form = new Pricipal(fecha, ds,ds2, band);
                 form.Show();
                 this.Close();
             }
@@ -106,7 +106,7 @@ namespace ElGranPollo
                 DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    Pricipal form = new Pricipal(fecha, ds, band);
+                    Pricipal form = new Pricipal(fecha, ds,ds2, band);
                     form.Show();
                     this.Close();
                 }
@@ -255,12 +255,6 @@ namespace ElGranPollo
             ACTUALIZADO(band);
         }
 
-        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            /*Almacen corre = new Almacen(ds);
-            corre.Show();*/
-        }
-
         public void ACTUALIZADO(int band)
         {
             if (label2.Text == "Usted Ingreso Como Root"||band==0)
@@ -336,13 +330,13 @@ namespace ElGranPollo
             {
                 label2.Text = "Usted Ingreso Como Administrador";
                 listView1.Visible = false;
-                listView2.Location = new Point(303, 144);
-                pictureBox1.Location = new Point(613, 169);
+                listView2.Location = new Point(162, 140);
+                pictureBox1.Location = new Point(490, 175);
                 
                 button1.Visible = false;
                 label3.Visible = false;
                 textBox1.Visible = false;
-                this.Size = new Size(732, 433);
+                this.Size = new Size(638, 433);
 
                 OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT USUARIOS.id,USUARIOS.nombre, USUARIOS.TIPO_USUARIO FROM USUARIOS WHERE USUARIOS.tipo_usuario <>'ROOT'", ds2);
 

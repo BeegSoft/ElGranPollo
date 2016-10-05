@@ -17,11 +17,12 @@ namespace ElGranPollo
 {
     public partial class Pricipal : Form
     {
-        public Pricipal(string fecha,string ds,int band)
+        public Pricipal(string fecha,string ds,string ds2,int band)
         {
             InitializeComponent();
             this.fecha = fecha;
             this.ds = ds;
+            this.ds2 = ds2;
             this.band = band;
 
             label10.Visible = false;
@@ -34,16 +35,16 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-        string fecha,fecha_ale, ds, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
+        string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
         int band, id_orden, precio_pagar, cantidad_extras, extras_neto;
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
-
             if (band == 3)
             {
                 estadisticasToolStripMenuItem.Visible = false;
                 gastosToolStripMenuItem.Visible = false;
+                menuToolStripMenuItem.Visible = false;
 
                 button12.Visible = false;
                 groupBox4.Visible = false;
@@ -153,9 +154,29 @@ namespace ElGranPollo
             SELECT_HISTORIAL(fecha_ale);
         }
 
+        private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Historial corre = new Historial(ds);
+            corre.Show();
+        }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gastos corre = new Gastos(ds);
+            corre.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control_acceso corre = new Control_acceso(ds, ds2);
+            corre.Show();
+            this.Hide();
+        }
+
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Menu corre = new Menu(ds);
+            corre.Show();
         }
 
         private void radio_medio_CheckedChanged(object sender, EventArgs e)
