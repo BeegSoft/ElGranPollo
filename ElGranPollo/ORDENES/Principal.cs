@@ -35,14 +35,13 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-<<<<<<< HEAD
+
+        
+
         string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
-        int band, id_orden, precio_pagar, cantidad_extras, extras_neto;
-=======
-        string fecha,fecha_ale, ds, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
         int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra;
         bool bandera_domicilio = false;
->>>>>>> 7a1b09b74ef9a0ed46e578460e5713c711954a1e
+
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
