@@ -35,7 +35,8 @@ namespace ElGranPollo
         }
 
         string fecha,fecha_ale, ds, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
-        int band, id_orden, precio_pagar, cantidad_extras, extras_neto;
+        int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra;
+        bool bandera_domicilio = false;
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
@@ -138,6 +139,11 @@ namespace ElGranPollo
             }
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            LIMPIEZA();
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             fecha_ale = dateTimePicker1.Text;
@@ -166,16 +172,49 @@ namespace ElGranPollo
         //BOTON DE TERMINAR
         private void button7_Click(object sender, EventArgs e)
         {
-            //Agregar los datos seleccionados a la base de datos
+            //Obtener el numero de orden
+            OleDbConnection conexion2 = new OleDbConnection(ds);
+
+            conexion2.Open();
+
+            string maximo = "SELECT MAX(id_orden) FROM ORDEN";
+            OleDbCommand cmd3 = new OleDbCommand(maximo, conexion2);
+            id_orden = 1 + Convert.ToInt32(cmd3.ExecuteScalar());
+            conexion2.Close();
 
             /*===============Seleccion de cantidad de pollo=====================*/
-            if (radio_medio.Checked == true) opcion_cantidad_pollo = "medio";
+            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio_pollo";
 
-            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "uno";
+            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Un_pollo";
 
-            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "unomedio";
+            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_medio_pollo";
 
-            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "dos";
+            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos_pollos";
+
+            /*==========Seleccionar el precio del pollo=========================*/
+            OleDbConnection conexion3 = new OleDbConnection(ds);
+
+            conexion3.Open();
+
+            string select = "SELECT precio_platillo FROM MENU WHERE nombre_platillo='" + opcion_cantidad_pollo + "'";
+            OleDbCommand cmd2 = new OleDbCommand(select, conexion3);
+            try
+            {
+                OleDbDataReader reader = cmd2.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        precio_pagar = reader.GetInt32(0);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex);
+            }
 
             /*==============Seleccion de tipo de pollo==========================*/
             if (radio_adobado.Checked == true) opcion_tipo_pollo = "adobado";
@@ -189,35 +228,73 @@ namespace ElGranPollo
 
             cantidad_extras = Convert.ToInt32(extra_cebolla.Value) + Convert.ToInt32(extra_ensalada.Value) + Convert.ToInt32(extra_frijol.Value) + Convert.ToInt32(extra_salsa.Value) + Convert.ToInt32(extra_tortilla.Value);
 
-            if(cantidad_extras > 5)
-            {
-                extras_neto = cantidad_extras - 5;
-            }
-
-
-
-            //Guardar los datos de domicilio si es que se habilitó el boton de pedido a domicilio
-
-            //Borrar datos de los campos una vez que ya se hayan guardado
-
-            //Obtener el ID de orden
-
-
-            //Preguntar si desea terminar la orden
-            DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (resultado == DialogResult.Yes)
+            cobro_extra = 0;
+            if (cantidad_extras > 5)
             {
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
 
-                string insertar = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @pagar)";
+                string select2 = "SELECT precio_platillo FROM MENU WHERE nombre_platillo='extra'";
+                OleDbCommand cmd = new OleDbCommand(select2, conexion);
+                try
+                {
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            precio_extra = reader.GetInt32(0);
+                        }
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error orden" + ex);
+                }
+                extras_neto = cantidad_extras - 5;
+                cobro_extra = extras_neto * precio_extra;
+            }
+
+            //Preguntar si desea terminar la orden
+            DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                //verificar si no ha guardado los datos del domicilio
+                if(bandera_domicilio == true)
+                {
+                    //METODO PARA GUARDAR EL DOMICILIO
+                }
+
+                //Insertar todos los datos del pedido a la base de datos
+                OleDbConnection conexion = new OleDbConnection(ds);
+
+                conexion.Open();
+
+                string insertar = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
                 cmd.Parameters.AddWithValue("@id_orden", id_orden);
-                cmd.Parameters.AddWithValue("@nombre_platillo", nombre_platillo);
+                cmd.Parameters.AddWithValue("@nombre_platillo", opcion_tipo_pollo);
+                cmd.Parameters.AddWithValue("@cantidad", opcion_cantidad_pollo);
                 cmd.Parameters.AddWithValue("@pagar", precio_pagar);
 
                 cmd.ExecuteNonQuery();
+
+                //Si hay extras insertará que haya pedido extras
+                if(cobro_extra != 0)
+                {
+                    string insertar2 = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                    OleDbCommand cmd22 = new OleDbCommand(insertar2, conexion);
+                    cmd22.Parameters.AddWithValue("@id_orden", id_orden);
+                    cmd22.Parameters.AddWithValue("@nombre_platillo", "Extra");
+                    cmd22.Parameters.AddWithValue("@cantidad", extras_neto);
+                    cmd22.Parameters.AddWithValue("@pagar", cobro_extra);
+
+                    cmd22.ExecuteNonQuery();
+                }
+
                 MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion.Close();
 
