@@ -164,6 +164,11 @@ namespace ElGranPollo
             SELECT_HISTORIAL(fecha_ale);
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Historial corre = new Historial(ds);
