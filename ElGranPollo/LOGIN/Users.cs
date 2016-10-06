@@ -117,7 +117,7 @@ namespace ElGranPollo
 
         private void abrirBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo/base.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/base.mdb");
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -247,7 +247,7 @@ namespace ElGranPollo
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo//Usuarios.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/Usuarios.mdb");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -298,6 +298,7 @@ namespace ElGranPollo
                 }
                 band = 1;
             }
+            MessageBox.Show("La tabla se encuentra actualizada");
         }
 
         public void SELECT_USUARIOS(int band)

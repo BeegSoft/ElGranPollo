@@ -40,7 +40,6 @@ namespace ElGranPollo
                     while (reader.Read())
                     {
                         id = reader.GetInt32(0) + 1;
-
                     }
                 }
                 else
