@@ -135,18 +135,21 @@
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
             this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.estadisticasToolStripMenuItem.Text = "&Estadisticas";
+            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click);
             // 
             // gastosToolStripMenuItem
             // 
             this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
             this.gastosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.gastosToolStripMenuItem.Text = "&Gastos";
+            this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.cerrarSesionToolStripMenuItem.Text = "&Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -393,6 +396,7 @@
             this.button10.Text = "checar";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // textBox6
             // 
@@ -471,9 +475,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(22, 78);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 16);
+            this.label14.Size = new System.Drawing.Size(63, 16);
             this.label14.TabIndex = 2;
-            this.label14.Text = "Telefono:";
+            this.label14.Text = "Nombre";
             // 
             // textBox1
             // 
@@ -487,9 +491,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(21, 29);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 16);
+            this.label12.Size = new System.Drawing.Size(70, 16);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Nombre";
+            this.label12.Text = "Telefono";
             // 
             // groupBox3
             // 

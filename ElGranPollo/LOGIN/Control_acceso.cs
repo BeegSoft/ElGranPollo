@@ -25,8 +25,8 @@ namespace ElGranPollo
             //---------
             this.ds = ds;
             this.ds2 = ds2;
-        }       
-
+        }
+        string comboBox1="SELECCIONAR";
         private void splashtart()
         {
             Application.Run(new Form2(ds));
@@ -36,7 +36,7 @@ namespace ElGranPollo
         {
             textBox1.Clear();
             textBox2.Clear();
-            comboBox1.Text = "SELECCIONAR";
+            comboBox1 = "SELECCIONAR";
         }
         
         string ds,ds2,operador;
@@ -55,9 +55,10 @@ namespace ElGranPollo
             //--------               
 
             OleDbConnection conexion = new OleDbConnection(ds2);
-            conexion.Open();
-            string select = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'and USUARIOS.tipo_usuario='" + comboBox1.Text + "'";
-            OleDbCommand cmd6 = new OleDbCommand(select, conexion);
+            conexion.Open();           
+            
+            string select2 = "SELECT * FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'and USUARIOS.clave='" + var1 + "'";
+            OleDbCommand cmd6 = new OleDbCommand(select2, conexion);
             try
             {
                 OleDbDataReader reader = cmd6.ExecuteReader();
@@ -67,7 +68,6 @@ namespace ElGranPollo
                     while (reader.Read())
                     {                        
                         CHECAR2();
-
                     }
                 }
                 else
@@ -100,12 +100,12 @@ namespace ElGranPollo
 
         private void CHECAR2()
         {
-            if ((comboBox1.Text == "ROOT") || (comboBox1.Text == "ADMINISTRADOR") || (comboBox1.Text == "OPERADOR"))
+            if ((comboBox1== "ROOT") || (comboBox1 == "ADMINISTRADOR") || (comboBox1 == "OPERADOR"))
             {
                 textBox1.Focus();
                 TIPO();                
             }
-            else if ((comboBox1.Text != "ROOT") || (comboBox1.Text != "ADMINISTRADOR") || (comboBox1.Text != "OPERADOR"))
+            else if ((comboBox1 != "ROOT") || (comboBox1 != "ADMINISTRADOR") || (comboBox1 != "OPERADOR"))
             {
                 if (veces == 3)
                 {
@@ -124,7 +124,7 @@ namespace ElGranPollo
 
         private void TIPO()
         {
-            if (comboBox1.Text == "ROOT")
+            if (comboBox1 == "ROOT")
             {
                 band = 0;
                 Users corre = new Users(ds,ds2, band,operador);
@@ -132,7 +132,7 @@ namespace ElGranPollo
                 LIMPIAR();
                 this.Hide();
             }
-            else if (comboBox1.Text == "ADMINISTRADOR")
+            else if (comboBox1 == "ADMINISTRADOR")
             {
                 band = 1;
                 Users corre = new Users(ds,ds2, band,operador);
@@ -141,7 +141,7 @@ namespace ElGranPollo
                 LIMPIAR();
                 this.Hide();
             }
-            else if(comboBox1.Text=="OPERADOR")
+            else if(comboBox1=="OPERADOR")
             {
                 operador = textBox1.Text;
                 band = 3;                
@@ -176,7 +176,7 @@ namespace ElGranPollo
                     cmd.ExecuteNonQuery();
 
                     conexion.Close();
-                    Pricipal form = new Pricipal(fecha, ds, band);
+                    Pricipal form = new Pricipal(fecha, ds,ds2, band);
                     form.Show();
                     this.Close();
                 }
@@ -186,7 +186,7 @@ namespace ElGranPollo
                     DialogResult resultado = MessageBox.Show("Ya existe un historial del dia de hoy\n\n      Desea continuar el dia de hoy?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resultado == DialogResult.Yes)
                     {
-                        Pricipal form = new Pricipal(fecha, ds, band);
+                        Pricipal form = new Pricipal(fecha, ds,ds2, band);
                         form.Show();
                         this.Close();
                     }
@@ -210,13 +210,12 @@ namespace ElGranPollo
                     textBox2.Focus();
                     return;
                 }
-                if (comboBox1.Text == "SELECCIONAR")
+                if (comboBox1 == "SELECCIONAR")
                 {
-                    MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    comboBox1.Focus();
+                    MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                  
                     return;
                 }
-                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1.Text != "SELECCIONAR"))
+                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1 != "SELECCIONAR"))
                 {
                     CONECTAR();
                     break;
@@ -230,7 +229,7 @@ namespace ElGranPollo
             DateTime fechahoy = DateTime.Now;
             string fecha = fechahoy.ToString("d");
             
-            Pricipal form = new Pricipal(fecha, ds, 3);
+            Pricipal form = new Pricipal(fecha, ds,ds2, 0);
             form.Show();
             this.Hide();
         }
@@ -241,6 +240,36 @@ namespace ElGranPollo
 
         private void button3_Click(object sender, EventArgs e)
         {
+            OleDbConnection conexion = new OleDbConnection(ds2);
+            conexion.Open();
+
+            //verificar el tipo de usuario-------------------------
+            string select = "SELECT tipo_usuario FROM USUARIOS where USUARIOS.nombre='" + textBox1.Text + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        comboBox1 = reader.GetString(0);
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conexion.Close();
+            ///----------------------------------------------------
+
             CHECAR();
         }
 

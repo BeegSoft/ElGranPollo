@@ -263,6 +263,16 @@ namespace ElGranPollo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMG_20161003_WA0026 {
+            get {
+                object obj = ResourceManager.GetObject("IMG-20161003-WA0026", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jamaica {
             get {
                 object obj = ResourceManager.GetObject("jamaica", resourceCulture);

@@ -27,7 +27,7 @@ namespace ElGranPollo
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            label1.BackColor = Color.Transparent;            
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
