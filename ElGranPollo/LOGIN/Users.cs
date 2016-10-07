@@ -41,28 +41,46 @@ namespace ElGranPollo
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // 0 para root
             if (band == 0)
             {
                 foreach (ListViewItem lista in listView1.SelectedItems)
                 {
-                    id =Convert.ToInt32(lista.Text);
+                    id =Convert.ToInt32(lista.Text);                    
+                }
+                if (id == 0)
+                {
+                    MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds, ds2, id, band);
                     abre.Show();
+                    
                 }
                 band = 0;
             }
+            // 1 para administrador
             else if (band == 1)
             {
                 foreach (ListViewItem lista in listView2.SelectedItems)
                 {
-                    id = Convert.ToInt32(lista.Text);
+                    id = Convert.ToInt32(lista.Text);                    
+                }
+                if (id == 0)
+                {
+                    MessageBox.Show("No se encuentra seleccionado un id", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     band = 1;
-                    Nuevo_usuario abre = new Nuevo_usuario(ds,ds2, id, band);
+                    Nuevo_usuario abre = new Nuevo_usuario(ds, ds2, id, band);
                     abre.Show();
                 }
                 band = 1;
             }
+            id = 0;
         }
         //public event EventHandler<ListViewUpdateEventArgs> ItemUpdating;
 
@@ -117,7 +135,7 @@ namespace ElGranPollo
 
         private void abrirBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo/base.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/base.mdb");
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,6 +195,7 @@ namespace ElGranPollo
 
         private void BORRAR(int band)
         {
+            // 0 para root
             if (band == 0)
             {
                 foreach (ListViewItem lista in listView1.SelectedItems)
@@ -211,6 +230,8 @@ namespace ElGranPollo
                 }
                 band = 0;
             }
+
+            // 1 para administrador
             else if (band == 1)
             {
                 foreach (ListViewItem lista in listView2.SelectedItems)
@@ -247,7 +268,7 @@ namespace ElGranPollo
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/ElGranPollo//Usuarios.mdb");
+            System.Diagnostics.Process.Start("C:/ElGranPollo/ElGranPollo/Usuarios.mdb");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -298,10 +319,12 @@ namespace ElGranPollo
                 }
                 band = 1;
             }
+            MessageBox.Show("La tabla se encuentra actualizada");
         }
 
         public void SELECT_USUARIOS(int band)
         {
+            //root
             if (band == 0)
             {
                 label2.Text = "Usted Ingreso Como Root";
@@ -326,6 +349,7 @@ namespace ElGranPollo
                 }
                 band = 0;
             }
+            //admin
             else if (band == 1)
             {
                 label2.Text = "Usted Ingreso Como Administrador";

@@ -40,7 +40,6 @@ namespace ElGranPollo
                     while (reader.Read())
                     {
                         id = reader.GetInt32(0) + 1;
-
                     }
                 }
                 else
@@ -78,9 +77,14 @@ namespace ElGranPollo
 
         private void button4_Click(object sender, EventArgs e)
         {
+            int convertir = 0;
+            bool convertido = int.TryParse(textBox_precio.Text, out convertir);
+
             if (textBox_nombre.TextLength == 0 || textBox_precio.TextLength == 0)
             {
                 MessageBox.Show("Tienes Campos vacios para continuar", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (convertido == false) {
+                MessageBox.Show("El campo 'Precio' solo puede contener numeros", "ALERTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -121,6 +125,11 @@ namespace ElGranPollo
             form.Show();
 
             this.Close();
+        }
+
+        private void textBox_precio_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

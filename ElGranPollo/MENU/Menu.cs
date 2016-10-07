@@ -50,7 +50,6 @@ namespace ElGranPollo
         {
             Menu_agregar form = new Menu_agregar(ds);
             form.Show();
-
             this.Close();
         }
 

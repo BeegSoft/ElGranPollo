@@ -449,13 +449,20 @@
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(482, 91);
             this.chart1.Name = "chart1";
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.DodgerBlue,
+        System.Drawing.Color.Red,
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
             series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.CornflowerBlue;
             series1.Legend = "Legend1";
             series1.Name = "Ventas";
             series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Red;
             series2.Legend = "Legend1";
             series2.Name = "Gastos";
             series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.LimeGreen;
             series3.Legend = "Legend1";
             series3.Name = "Ganancias";
             this.chart1.Series.Add(series1);

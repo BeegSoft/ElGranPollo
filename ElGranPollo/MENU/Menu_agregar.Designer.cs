@@ -75,6 +75,7 @@
             this.textBox_precio.Name = "textBox_precio";
             this.textBox_precio.Size = new System.Drawing.Size(69, 20);
             this.textBox_precio.TabIndex = 8;
+            this.textBox_precio.TextChanged += new System.EventHandler(this.textBox_precio_TextChanged);
             // 
             // textBox_nombre
             // 

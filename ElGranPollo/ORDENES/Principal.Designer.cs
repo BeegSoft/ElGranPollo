@@ -189,7 +189,6 @@
             this.radio_chipotle.Name = "radio_chipotle";
             this.radio_chipotle.Size = new System.Drawing.Size(83, 20);
             this.radio_chipotle.TabIndex = 5;
-            this.radio_chipotle.TabStop = true;
             this.radio_chipotle.Text = "Chipotle";
             this.radio_chipotle.UseVisualStyleBackColor = true;
             this.radio_chipotle.Click += new System.EventHandler(this.radioButton7_Click);
@@ -201,7 +200,6 @@
             this.radio_chiltepin.Name = "radio_chiltepin";
             this.radio_chiltepin.Size = new System.Drawing.Size(86, 20);
             this.radio_chiltepin.TabIndex = 4;
-            this.radio_chiltepin.TabStop = true;
             this.radio_chiltepin.Text = "Chiltepin";
             this.radio_chiltepin.UseVisualStyleBackColor = true;
             this.radio_chiltepin.Click += new System.EventHandler(this.radioButton8_Click);
@@ -209,6 +207,7 @@
             // radio_adobado
             // 
             this.radio_adobado.AutoSize = true;
+            this.radio_adobado.Checked = true;
             this.radio_adobado.Location = new System.Drawing.Point(8, 25);
             this.radio_adobado.Name = "radio_adobado";
             this.radio_adobado.Size = new System.Drawing.Size(90, 20);
@@ -238,7 +237,6 @@
             this.radio_dos.Name = "radio_dos";
             this.radio_dos.Size = new System.Drawing.Size(34, 20);
             this.radio_dos.TabIndex = 5;
-            this.radio_dos.TabStop = true;
             this.radio_dos.Text = "2";
             this.radio_dos.UseVisualStyleBackColor = true;
             this.radio_dos.Click += new System.EventHandler(this.radioButton6_Click);
@@ -250,7 +248,6 @@
             this.radio_unomedio.Name = "radio_unomedio";
             this.radio_unomedio.Size = new System.Drawing.Size(59, 20);
             this.radio_unomedio.TabIndex = 4;
-            this.radio_unomedio.TabStop = true;
             this.radio_unomedio.Text = "1 1/2";
             this.radio_unomedio.UseVisualStyleBackColor = true;
             this.radio_unomedio.Click += new System.EventHandler(this.radioButton5_Click);
@@ -262,7 +259,6 @@
             this.radio_uno.Name = "radio_uno";
             this.radio_uno.Size = new System.Drawing.Size(34, 20);
             this.radio_uno.TabIndex = 3;
-            this.radio_uno.TabStop = true;
             this.radio_uno.Text = "1";
             this.radio_uno.UseVisualStyleBackColor = true;
             this.radio_uno.Click += new System.EventHandler(this.radioButton4_Click);
@@ -270,6 +266,7 @@
             // radio_medio
             // 
             this.radio_medio.AutoSize = true;
+            this.radio_medio.Checked = true;
             this.radio_medio.Location = new System.Drawing.Point(8, 25);
             this.radio_medio.Name = "radio_medio";
             this.radio_medio.Size = new System.Drawing.Size(47, 20);
