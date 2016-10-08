@@ -50,7 +50,7 @@ namespace ElGranPollo
                 }
                 if (id == 0)
                 {
-                    MessageBox.Show("No se encuentra seleccionada una orden", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se encuentra seleccionada un id", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
