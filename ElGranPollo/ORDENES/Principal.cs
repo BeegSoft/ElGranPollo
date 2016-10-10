@@ -40,7 +40,7 @@ namespace ElGranPollo
 
         string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
         int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra;
-        bool bandera_domicilio = false;
+        bool bandera_domicilio = false,banda;
 
 
         private void Pricipal_Load(object sender, EventArgs e)
@@ -166,7 +166,121 @@ namespace ElGranPollo
 
         private void button10_Click(object sender, EventArgs e)
         {
+            OleDbConnection conexion = new OleDbConnection(ds);
 
+            conexion.Open();
+
+            string selet = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+            OleDbCommand cm = new OleDbCommand(selet, conexion);
+            try
+            {
+                OleDbDataReader reader = cm.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //nombre cliente
+                        string select = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+
+                        OleDbCommand cmd = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+
+                        textBox2.Text = (cmd.ExecuteScalar()).ToString();
+                        //--------------------------------
+
+                        // calle
+                        string select2 = "SELECT calle_y_numero FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+
+                        OleDbCommand cmd1 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+
+                        textBox4.Text = (cmd1.ExecuteScalar()).ToString();
+                        //--------------------------------
+
+                        //SUMA GASTOS
+                        string select3 = "SELECT entre_1 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+
+                        OleDbCommand cmd3 = new OleDbCommand(select3, conexion); //Conexion es tu objeto conexion                                
+
+                        textBox5.Text = (cmd3.ExecuteScalar()).ToString();
+                        //--------------------------------
+
+                        //SUMA GASTOS
+                        string select4 = "SELECT entre_2 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+
+                        OleDbCommand cmd4 = new OleDbCommand(select4, conexion); //Conexion es tu objeto conexion                                
+
+                        textBox6.Text = (cmd4.ExecuteScalar()).ToString();
+                        //--------------------------------
+
+                        //SUMA GASTOS
+                        string select5 = "SELECT descripcion_casa FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+
+                        OleDbCommand cmd5 = new OleDbCommand(select5, conexion); //Conexion es tu objeto conexion                                
+
+                        textBox3.Text = (cmd5.ExecuteScalar()).ToString();
+                        //--------------------------------
+                        banda = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
+
+            conexion.Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+            if (banda == true)
+            {
+                banda = false;
+                string insertar = "UPDATE DOMICILIO SET telefono= @telefono, nombre_cliente = @nombre_cliente, calle_y_numero= @calle_y_numero, entre_1 = @entre_1, entre_2= @entre_2, descripcion_casa = @descripcion_casa WHERE telefono='" + textBox1.Text + "'";
+                OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                cmd.Parameters.AddWithValue("@telefono", textBox1.Text);
+                cmd.Parameters.AddWithValue("@nombre_cliente", textBox2.Text);
+                cmd.Parameters.AddWithValue("@calle_y_numero", textBox4.Text);
+                cmd.Parameters.AddWithValue("@entre_1", textBox5.Text);
+                cmd.Parameters.AddWithValue("@entre_2", textBox6.Text);
+                cmd.Parameters.AddWithValue("@descripcion_casa", textBox3.Text);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (textBox1.Text==""||textBox2.Text==""|| textBox3.Text == "" || textBox4.Text == ""|| textBox5.Text == "" || textBox6.Text == "")
+                {
+                    MessageBox.Show("Algunos campos estan vacios", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string insertar = "INSERT INTO MENU VALUES (@telefono, @nombre_cliente, @calle_y_numero, @entre_1, @entre_2, @descripcion_casa)";
+                    OleDbCommand cmd = new OleDbCommand(insertar, conexion);
+                    cmd.Parameters.AddWithValue("@telefono", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@nombre_cliente", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@calle_y_numero", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@entre_1", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@entre_2", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@descripcion_casa", textBox3.Text);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }                        
+            conexion.Close();
         }
 
         private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
