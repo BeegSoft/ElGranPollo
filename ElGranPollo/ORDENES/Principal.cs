@@ -267,7 +267,7 @@ namespace ElGranPollo
                 }
                 else
                 {
-                    string insertar = "INSERT INTO MENU VALUES (@telefono, @nombre_cliente, @calle_y_numero, @entre_1, @entre_2, @descripcion_casa)";
+                    string insertar = "INSERT INTO DOMICILIO(telefono,nombre_cliente,calle_y_numero,entre_1,entre_2,descripcion_casa) VALUES (@telefono, @nombre_cliente, @calle_y_numero, @entre_1, @entre_2, @descripcion_casa)";
                     OleDbCommand cmd = new OleDbCommand(insertar, conexion);
                     cmd.Parameters.AddWithValue("@telefono", textBox1.Text);
                     cmd.Parameters.AddWithValue("@nombre_cliente", textBox2.Text);
