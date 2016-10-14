@@ -283,7 +283,9 @@
     <None Include="Resources\agregar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bloggif_57fff2abcef8a.jpeg" />
     <Content Include="Resources\descarga.png" />
+    <None Include="Resources\IMG-20161003-WA0026_opt.jpg" />
     <None Include="Resources\IMG-20161003-WA0026.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
