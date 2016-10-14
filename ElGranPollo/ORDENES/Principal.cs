@@ -170,7 +170,7 @@ namespace ElGranPollo
 
             conexion.Open();
 
-            string selet = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+            string selet = "SELECT nombre_cliente,calle_y_numero,entre_1,entre_2,descripcion_casa FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
             OleDbCommand cm = new OleDbCommand(selet, conexion);
             try
             {
@@ -179,48 +179,20 @@ namespace ElGranPollo
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    {
-                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //nombre cliente
-                        string select = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+                    {                        
 
-                        OleDbCommand cmd = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+                        textBox2.Text = reader.GetString(0);                        
 
-                        textBox2.Text = (cmd.ExecuteScalar()).ToString();
-                        //--------------------------------
+                        textBox4.Text = reader.GetString(1);                                                     
 
-                        // calle
-                        string select2 = "SELECT calle_y_numero FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+                        textBox5.Text = reader.GetString(2);                                                      
 
-                        OleDbCommand cmd1 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+                        textBox6.Text = reader.GetString(3);                                                    
 
-                        textBox4.Text = (cmd1.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select3 = "SELECT entre_1 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd3 = new OleDbCommand(select3, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox5.Text = (cmd3.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select4 = "SELECT entre_2 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd4 = new OleDbCommand(select4, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox6.Text = (cmd4.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select5 = "SELECT descripcion_casa FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd5 = new OleDbCommand(select5, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox3.Text = (cmd5.ExecuteScalar()).ToString();
+                        textBox3.Text = reader.GetString(4);
                         //--------------------------------
                         banda = true;
+                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else

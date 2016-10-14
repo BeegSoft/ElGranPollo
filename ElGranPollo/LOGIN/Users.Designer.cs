@@ -42,16 +42,16 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AbrirProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +172,74 @@
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
+            // registrarToolStripMenuItem
+            // 
+            this.registrarToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.registrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.registrarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.add_female_user;
+            this.registrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(94, 90);
+            this.registrarToolStripMenuItem.Text = "Registrar";
+            this.registrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.modificarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.book_search;
+            this.modificarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(99, 90);
+            this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
+            // 
+            // AbrirProgramaToolStripMenuItem
+            // 
+            this.AbrirProgramaToolStripMenuItem.BackColor = System.Drawing.Color.DarkSalmon;
+            this.AbrirProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AbrirProgramaToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.IMG_20161003_WA00261;
+            this.AbrirProgramaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AbrirProgramaToolStripMenuItem.Name = "AbrirProgramaToolStripMenuItem";
+            this.AbrirProgramaToolStripMenuItem.Size = new System.Drawing.Size(143, 90);
+            this.AbrirProgramaToolStripMenuItem.Text = "Abrir Programa";
+            this.AbrirProgramaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.AbrirProgramaToolStripMenuItem.Click += new System.EventHandler(this.AbrirProgramaToolStripMenuItem_Click);
+            // 
+            // abrirBaseDeDatosToolStripMenuItem
+            // 
+            this.abrirBaseDeDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.abrirBaseDeDatosToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.bdd;
+            this.abrirBaseDeDatosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.abrirBaseDeDatosToolStripMenuItem.Name = "abrirBaseDeDatosToolStripMenuItem";
+            this.abrirBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(183, 90);
+            this.abrirBaseDeDatosToolStripMenuItem.Text = "Abrir Base De Datos";
+            this.abrirBaseDeDatosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.abrirBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.abrirBaseDeDatosToolStripMenuItem_Click);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.usuariosToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.female_male_users;
+            this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 90);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cerrarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.shut_down;
+            this.cerrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(76, 90);
+            this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -216,74 +284,6 @@
             this.pictureBox1.TabIndex = 103;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // registrarToolStripMenuItem
-            // 
-            this.registrarToolStripMenuItem.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.registrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.registrarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.add_female_user;
-            this.registrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(94, 90);
-            this.registrarToolStripMenuItem.Text = "Registrar";
-            this.registrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.modificarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.book_search;
-            this.modificarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(99, 90);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
-            // 
-            // AbrirProgramaToolStripMenuItem
-            // 
-            this.AbrirProgramaToolStripMenuItem.BackColor = System.Drawing.Color.DarkSalmon;
-            this.AbrirProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AbrirProgramaToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.pollo_converted;
-            this.AbrirProgramaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AbrirProgramaToolStripMenuItem.Name = "AbrirProgramaToolStripMenuItem";
-            this.AbrirProgramaToolStripMenuItem.Size = new System.Drawing.Size(143, 90);
-            this.AbrirProgramaToolStripMenuItem.Text = "Abrir Programa";
-            this.AbrirProgramaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.AbrirProgramaToolStripMenuItem.Click += new System.EventHandler(this.AbrirProgramaToolStripMenuItem_Click);
-            // 
-            // abrirBaseDeDatosToolStripMenuItem
-            // 
-            this.abrirBaseDeDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.abrirBaseDeDatosToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.bdd;
-            this.abrirBaseDeDatosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.abrirBaseDeDatosToolStripMenuItem.Name = "abrirBaseDeDatosToolStripMenuItem";
-            this.abrirBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(183, 90);
-            this.abrirBaseDeDatosToolStripMenuItem.Text = "Abrir Base De Datos";
-            this.abrirBaseDeDatosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.abrirBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.abrirBaseDeDatosToolStripMenuItem_Click);
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.usuariosToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.female_male_users;
-            this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 90);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // cerrarToolStripMenuItem
-            // 
-            this.cerrarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cerrarToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.shut_down;
-            this.cerrarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(76, 90);
-            this.cerrarToolStripMenuItem.Text = "Cerrar";
-            this.cerrarToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // Users
             // 
