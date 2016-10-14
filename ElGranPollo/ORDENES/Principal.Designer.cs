@@ -92,6 +92,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.radioCredito = new System.Windows.Forms.RadioButton();
+            this.radio_efectivo = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -105,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.extra_salsa)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -154,6 +158,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.button9);
@@ -177,7 +182,7 @@
             this.groupBox7.Controls.Add(this.radio_adobado);
             this.groupBox7.Location = new System.Drawing.Point(100, 39);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(125, 142);
+            this.groupBox7.Size = new System.Drawing.Size(125, 158);
             this.groupBox7.TabIndex = 93;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Tipo de Pollo";
@@ -225,7 +230,7 @@
             this.groupBox6.Controls.Add(this.radio_medio);
             this.groupBox6.Location = new System.Drawing.Point(12, 39);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(76, 142);
+            this.groupBox6.Size = new System.Drawing.Size(76, 159);
             this.groupBox6.TabIndex = 92;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pollo";
@@ -505,7 +510,7 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(251, 39);
+            this.groupBox3.Location = new System.Drawing.Point(235, 39);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(129, 159);
             this.groupBox3.TabIndex = 82;
@@ -854,6 +859,40 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "El Gran Pollo";
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.radioCredito);
+            this.groupBox8.Controls.Add(this.radio_efectivo);
+            this.groupBox8.Location = new System.Drawing.Point(375, 39);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(119, 158);
+            this.groupBox8.TabIndex = 94;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Tipo de Pago";
+            this.groupBox8.Enter += new System.EventHandler(this.groupBox8_Enter);
+            // 
+            // radioCredito
+            // 
+            this.radioCredito.AutoSize = true;
+            this.radioCredito.Location = new System.Drawing.Point(8, 61);
+            this.radioCredito.Name = "radioCredito";
+            this.radioCredito.Size = new System.Drawing.Size(76, 20);
+            this.radioCredito.TabIndex = 4;
+            this.radioCredito.Text = "Credito";
+            this.radioCredito.UseVisualStyleBackColor = true;
+            // 
+            // radio_efectivo
+            // 
+            this.radio_efectivo.AutoSize = true;
+            this.radio_efectivo.Checked = true;
+            this.radio_efectivo.Location = new System.Drawing.Point(8, 25);
+            this.radio_efectivo.Name = "radio_efectivo";
+            this.radio_efectivo.Size = new System.Drawing.Size(82, 20);
+            this.radio_efectivo.TabIndex = 2;
+            this.radio_efectivo.TabStop = true;
+            this.radio_efectivo.Text = "Efectivo";
+            this.radio_efectivo.UseVisualStyleBackColor = true;
+            // 
             // Pricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -888,6 +927,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -959,5 +1000,8 @@
         private System.Windows.Forms.RadioButton radio_chipotle;
         private System.Windows.Forms.RadioButton radio_chiltepin;
         private System.Windows.Forms.RadioButton radio_adobado;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RadioButton radioCredito;
+        private System.Windows.Forms.RadioButton radio_efectivo;
     }
 }

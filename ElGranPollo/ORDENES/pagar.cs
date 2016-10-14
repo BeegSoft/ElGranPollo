@@ -26,9 +26,8 @@ namespace ElGranPollo
         }
 
 
-        int id_orden;
-        string total_pagar, fecha,operador;
-        String ds;
+        public int id_orden;
+        public string total_pagar, fecha,operador, ds;
 
         public void SetDefaultCulture(CultureInfo culture)
         {
@@ -73,7 +72,7 @@ namespace ElGranPollo
 
             conexion.Open();
 
-            string select = "SELECT descripcion FROM ORDEN WHERE id_orden=" + id_orden;
+            string select = "SELECT observacion FROM ORDEN WHERE id_orden=" + id_orden;
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {

@@ -38,9 +38,9 @@ namespace ElGranPollo
 
         
 
-        string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
-        int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra;
-        bool bandera_domicilio = false,banda;
+        public string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo, observacion;
+        public int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra, total_pagar;
+        public bool bandera_domicilio = false,banda;
 
 
         private void Pricipal_Load(object sender, EventArgs e)
@@ -239,6 +239,11 @@ namespace ElGranPollo
             conexion.Close();
         }
 
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void button11_Click(object sender, EventArgs e)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -316,24 +321,35 @@ namespace ElGranPollo
         //BOTON DE TERMINAR
         private void button7_Click(object sender, EventArgs e)
         {
-            //Obtener el numero de orden
+            //crear la orden
             OleDbConnection conexion2 = new OleDbConnection(ds);
+
+            conexion2.Open();
+
+            string maximo2 = "SELECT MAX(id_orden) FROM ORDEN";
+            OleDbCommand cmd4 = new OleDbCommand(maximo2, conexion2);
+            id_orden = 1 + Convert.ToInt32(cmd4.ExecuteScalar());
+
+            conexion2.Close();
+
+            //Obtener el numero de orden
+            /*OleDbConnection conexion2 = new OleDbConnection(ds);
 
             conexion2.Open();
 
             string maximo = "SELECT MAX(id_orden) FROM ORDEN";
             OleDbCommand cmd3 = new OleDbCommand(maximo, conexion2);
-            id_orden = 1 + Convert.ToInt32(cmd3.ExecuteScalar());
-            conexion2.Close();
+            id_orden = Convert.ToInt32(cmd3.ExecuteScalar());
+            conexion2.Close();*/
 
             /*===============Seleccion de cantidad de pollo=====================*/
-            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio_pollo";
+            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio";
 
-            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Un_pollo";
+            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Uno";
 
-            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_medio_pollo";
+            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_y_medio";
 
-            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos_pollos";
+            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos";
 
             /*==========Seleccionar el precio del pollo=========================*/
             OleDbConnection conexion3 = new OleDbConnection(ds);
@@ -400,7 +416,14 @@ namespace ElGranPollo
                 }
                 extras_neto = cantidad_extras - 5;
                 cobro_extra = extras_neto * precio_extra;
+
+                total_pagar = cobro_extra + precio_pagar;
             }
+
+            //TIPO DE PAGO
+
+            if (radio_efectivo.Checked == true) observacion = "Efectivo";
+            else if (radioCredito.Checked == true) observacion = "Credito";
 
             //Preguntar si desea terminar la orden
             DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -417,19 +440,27 @@ namespace ElGranPollo
 
                 conexion.Open();
 
-                string insertar = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                string insertar10 = "INSERT INTO ORDEN (total, fecha, observacion) VALUES (@total, @fecha, @observacion)";
+                OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
+                cmd10.Parameters.AddWithValue("@total", total_pagar);
+                cmd10.Parameters.AddWithValue("@fecha", fecha);
+                cmd10.Parameters.AddWithValue("@observacion", observacion);
+
+                cmd10.ExecuteNonQuery();
+
+                string insertar = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@id_orden", id_orden);
+                cmd.Parameters.AddWithValue("@id_orden", Convert.ToInt32(id_orden));
                 cmd.Parameters.AddWithValue("@nombre_platillo", opcion_tipo_pollo);
                 cmd.Parameters.AddWithValue("@cantidad", opcion_cantidad_pollo);
-                cmd.Parameters.AddWithValue("@pagar", precio_pagar);
+                cmd.Parameters.AddWithValue("@pagar", Convert.ToInt32(precio_pagar));
 
                 cmd.ExecuteNonQuery();
 
                 //Si hay extras insertará que haya pedido extras
                 if(cobro_extra != 0)
                 {
-                    string insertar2 = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                    string insertar2 = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                     OleDbCommand cmd22 = new OleDbCommand(insertar2, conexion);
                     cmd22.Parameters.AddWithValue("@id_orden", id_orden);
                     cmd22.Parameters.AddWithValue("@nombre_platillo", "Extra");
@@ -469,6 +500,16 @@ namespace ElGranPollo
             extra_ensalada.Value = 1;
             extra_frijol.Value = 1;
             extra_cebolla.Value = 1;
+
+            //DOMICILIO
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+
+            groupBox5.Enabled = false;
 
         }
 
