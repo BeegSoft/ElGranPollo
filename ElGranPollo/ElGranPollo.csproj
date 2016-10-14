@@ -283,6 +283,8 @@
     <None Include="Resources\agregar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\IMG_20161003_WA00261.jpg" />
+    <None Include="Resources\IMG_20161003_WA00261.bmp" />
     <None Include="Resources\IMG-20161003-WA00261.jpg" />
     <None Include="Resources\bloggif_57fff2abcef8a.jpeg" />
     <Content Include="Resources\descarga.png" />

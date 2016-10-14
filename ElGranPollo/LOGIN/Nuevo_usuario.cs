@@ -43,7 +43,7 @@ namespace ElGranPollo
                 //para obtener los datos
 
                 //clave........................................................
-                string select = "SELECT clave FROM USUARIOS WHERE id=" + id;
+                string select = "SELECT clave,nombre,tipo_usuario FROM USUARIOS WHERE id=" + id;
                 OleDbCommand cmd6 = new OleDbCommand(select, conexion);
                 try
                 {
@@ -56,59 +56,11 @@ namespace ElGranPollo
                             string clv_des = reader.GetString(0);
                             string aux = Encriptado.DesEncriptar(clv_des);
                             txtclave.Text = aux;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-
-                //nombre...............................................................................
-                string select2 = "SELECT nombre FROM USUARIOS WHERE id=" + id;
-                OleDbCommand cmd62 = new OleDbCommand(select2, conexion);
-                try
-                {
-                    OleDbDataReader reader = cmd62.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string nombre = reader.GetString(0);
+                            string nombre = reader.GetString(1);
                             txtnombre.Text = nombre;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-
-                //tipo..........................................................................
-                string select3 = "SELECT tipo_usuario FROM USUARIOS WHERE id=" + id;
-                OleDbCommand cmd63 = new OleDbCommand(select3, conexion);
-                try
-                {
-                    OleDbDataReader reader = cmd63.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string tipo = reader.GetString(0);
+                            string tipo = reader.GetString(2);
                             cbotipo.Text = tipo;
                         }
                     }
@@ -121,9 +73,7 @@ namespace ElGranPollo
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                conexion.Close();
-                ///..........................................
+                }                
             }
         }
 

@@ -169,7 +169,7 @@
   <data name="book_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG-20161003-WA00261" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG-20161003-WA00261.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IMG_20161003_WA00261" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_20161003_WA00261.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

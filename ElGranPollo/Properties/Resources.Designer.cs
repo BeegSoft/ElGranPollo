@@ -175,7 +175,7 @@ namespace ElGranPollo.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap IMG_20161003_WA00261 {
             get {
-                object obj = ResourceManager.GetObject("IMG-20161003-WA00261", resourceCulture);
+                object obj = ResourceManager.GetObject("IMG_20161003_WA00261", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
