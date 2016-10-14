@@ -199,7 +199,7 @@
             // 
             this.AbrirProgramaToolStripMenuItem.BackColor = System.Drawing.Color.DarkSalmon;
             this.AbrirProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AbrirProgramaToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.pollo_converted;
+            this.AbrirProgramaToolStripMenuItem.Image = global::ElGranPollo.Properties.Resources.IMG_20161003_WA00261;
             this.AbrirProgramaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AbrirProgramaToolStripMenuItem.Name = "AbrirProgramaToolStripMenuItem";
             this.AbrirProgramaToolStripMenuItem.Size = new System.Drawing.Size(143, 90);

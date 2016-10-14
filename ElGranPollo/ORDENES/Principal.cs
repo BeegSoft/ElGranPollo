@@ -38,9 +38,9 @@ namespace ElGranPollo
 
         
 
-        string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo;
-        int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra;
-        bool bandera_domicilio = false,banda;
+        public string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo, observacion;
+        public int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra, total_pagar;
+        public bool bandera_domicilio = false,banda;
 
 
         private void Pricipal_Load(object sender, EventArgs e)
@@ -170,7 +170,7 @@ namespace ElGranPollo
 
             conexion.Open();
 
-            string selet = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+            string selet = "SELECT nombre_cliente,calle_y_numero,entre_1,entre_2,descripcion_casa FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
             OleDbCommand cm = new OleDbCommand(selet, conexion);
             try
             {
@@ -179,48 +179,20 @@ namespace ElGranPollo
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    {
-                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //nombre cliente
-                        string select = "SELECT nombre_cliente FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+                    {                        
 
-                        OleDbCommand cmd = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
+                        textBox2.Text = reader.GetString(0);                        
 
-                        textBox2.Text = (cmd.ExecuteScalar()).ToString();
-                        //--------------------------------
+                        textBox4.Text = reader.GetString(1);                                                     
 
-                        // calle
-                        string select2 = "SELECT calle_y_numero FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
+                        textBox5.Text = reader.GetString(2);                                                      
 
-                        OleDbCommand cmd1 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
+                        textBox6.Text = reader.GetString(3);                                                    
 
-                        textBox4.Text = (cmd1.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select3 = "SELECT entre_1 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd3 = new OleDbCommand(select3, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox5.Text = (cmd3.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select4 = "SELECT entre_2 FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd4 = new OleDbCommand(select4, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox6.Text = (cmd4.ExecuteScalar()).ToString();
-                        //--------------------------------
-
-                        //SUMA GASTOS
-                        string select5 = "SELECT descripcion_casa FROM DOMICILIO WHERE telefono='" + textBox1.Text + "'";
-
-                        OleDbCommand cmd5 = new OleDbCommand(select5, conexion); //Conexion es tu objeto conexion                                
-
-                        textBox3.Text = (cmd5.ExecuteScalar()).ToString();
+                        textBox3.Text = reader.GetString(4);
                         //--------------------------------
                         banda = true;
+                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -237,6 +209,11 @@ namespace ElGranPollo
             
 
             conexion.Close();
+        }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -316,24 +293,35 @@ namespace ElGranPollo
         //BOTON DE TERMINAR
         private void button7_Click(object sender, EventArgs e)
         {
-            //Obtener el numero de orden
+            //crear la orden
             OleDbConnection conexion2 = new OleDbConnection(ds);
+
+            conexion2.Open();
+
+            string maximo2 = "SELECT MAX(id_orden) FROM ORDEN";
+            OleDbCommand cmd4 = new OleDbCommand(maximo2, conexion2);
+            id_orden = 1 + Convert.ToInt32(cmd4.ExecuteScalar());
+
+            conexion2.Close();
+
+            //Obtener el numero de orden
+            /*OleDbConnection conexion2 = new OleDbConnection(ds);
 
             conexion2.Open();
 
             string maximo = "SELECT MAX(id_orden) FROM ORDEN";
             OleDbCommand cmd3 = new OleDbCommand(maximo, conexion2);
-            id_orden = 1 + Convert.ToInt32(cmd3.ExecuteScalar());
-            conexion2.Close();
+            id_orden = Convert.ToInt32(cmd3.ExecuteScalar());
+            conexion2.Close();*/
 
             /*===============Seleccion de cantidad de pollo=====================*/
-            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio_pollo";
+            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio";
 
-            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Un_pollo";
+            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Uno";
 
-            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_medio_pollo";
+            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_y_medio";
 
-            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos_pollos";
+            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos";
 
             /*==========Seleccionar el precio del pollo=========================*/
             OleDbConnection conexion3 = new OleDbConnection(ds);
@@ -400,7 +388,14 @@ namespace ElGranPollo
                 }
                 extras_neto = cantidad_extras - 5;
                 cobro_extra = extras_neto * precio_extra;
+
+                total_pagar = cobro_extra + precio_pagar;
             }
+
+            //TIPO DE PAGO
+
+            if (radio_efectivo.Checked == true) observacion = "Efectivo";
+            else if (radioCredito.Checked == true) observacion = "Credito";
 
             //Preguntar si desea terminar la orden
             DialogResult resultado = MessageBox.Show("Esta seguro de TERMINAR la orden?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -417,19 +412,27 @@ namespace ElGranPollo
 
                 conexion.Open();
 
-                string insertar = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                string insertar10 = "INSERT INTO ORDEN (total, fecha, observacion) VALUES (@total, @fecha, @observacion)";
+                OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
+                cmd10.Parameters.AddWithValue("@total", total_pagar);
+                cmd10.Parameters.AddWithValue("@fecha", fecha);
+                cmd10.Parameters.AddWithValue("@observacion", observacion);
+
+                cmd10.ExecuteNonQuery();
+
+                string insertar = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@id_orden", id_orden);
+                cmd.Parameters.AddWithValue("@id_orden", Convert.ToInt32(id_orden));
                 cmd.Parameters.AddWithValue("@nombre_platillo", opcion_tipo_pollo);
                 cmd.Parameters.AddWithValue("@cantidad", opcion_cantidad_pollo);
-                cmd.Parameters.AddWithValue("@pagar", precio_pagar);
+                cmd.Parameters.AddWithValue("@pagar", Convert.ToInt32(precio_pagar));
 
                 cmd.ExecuteNonQuery();
 
                 //Si hay extras insertará que haya pedido extras
                 if(cobro_extra != 0)
                 {
-                    string insertar2 = "INSERT INTO PLATILLO VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                    string insertar2 = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                     OleDbCommand cmd22 = new OleDbCommand(insertar2, conexion);
                     cmd22.Parameters.AddWithValue("@id_orden", id_orden);
                     cmd22.Parameters.AddWithValue("@nombre_platillo", "Extra");
@@ -469,6 +472,16 @@ namespace ElGranPollo
             extra_ensalada.Value = 1;
             extra_frijol.Value = 1;
             extra_cebolla.Value = 1;
+
+            //DOMICILIO
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+
+            groupBox5.Enabled = false;
 
         }
 

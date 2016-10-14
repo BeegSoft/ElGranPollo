@@ -45,7 +45,6 @@ namespace ElGranPollo
                     {
                         nombre_platillo = reader.GetString(0);
                         precio_platillo = reader.GetInt32(1);
-
                     }
                 }
                 else
