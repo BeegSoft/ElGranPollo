@@ -136,7 +136,7 @@
             // 
             this.label_fecha.AutoSize = true;
             this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fecha.Location = new System.Drawing.Point(348, 70);
+            this.label_fecha.Location = new System.Drawing.Point(398, 70);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(24, 13);
             this.label_fecha.TabIndex = 38;
@@ -146,7 +146,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(203, 70);
+            this.label6.Location = new System.Drawing.Point(218, 70);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 13);
             this.label6.TabIndex = 40;
@@ -160,9 +160,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView_gastos.Location = new System.Drawing.Point(342, 100);
+            this.listView_gastos.Location = new System.Drawing.Point(347, 100);
             this.listView_gastos.Name = "listView_gastos";
-            this.listView_gastos.Size = new System.Drawing.Size(327, 167);
+            this.listView_gastos.Size = new System.Drawing.Size(354, 167);
             this.listView_gastos.TabIndex = 41;
             this.listView_gastos.UseCompatibleStateImageBehavior = false;
             this.listView_gastos.View = System.Windows.Forms.View.Details;
@@ -175,12 +175,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Fecha";
-            this.columnHeader1.Width = 70;
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Descripción";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Width = 160;
             // 
             // columnHeader3
             // 
@@ -195,7 +195,7 @@
             this.groupBox1.Controls.Add(this.textBox_gasto);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(150, 104);
+            this.groupBox1.Location = new System.Drawing.Point(170, 104);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(171, 188);
             this.groupBox1.TabIndex = 43;
@@ -225,7 +225,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(634, 275);
+            this.label16.Location = new System.Drawing.Point(654, 275);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(14, 13);
             this.label16.TabIndex = 46;
@@ -235,18 +235,17 @@
             // 
             this.textBox_total.Enabled = false;
             this.textBox_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_total.Location = new System.Drawing.Point(651, 272);
+            this.textBox_total.Location = new System.Drawing.Point(671, 272);
             this.textBox_total.Name = "textBox_total";
             this.textBox_total.Size = new System.Drawing.Size(43, 20);
             this.textBox_total.TabIndex = 45;
             this.textBox_total.Text = "0";
-            this.textBox_total.TextChanged += new System.EventHandler(this.textBox_total_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(515, 274);
+            this.label13.Location = new System.Drawing.Point(535, 274);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(125, 13);
             this.label13.TabIndex = 44;
@@ -281,7 +280,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::ElGranPollo.Properties.Resources.delete;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(675, 101);
+            this.button4.Location = new System.Drawing.Point(707, 101);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(42, 43);
             this.button4.TabIndex = 75;
@@ -367,18 +366,18 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(289, 16);
+            this.label7.Location = new System.Drawing.Point(309, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(214, 32);
             this.label7.TabIndex = 81;
-            this.label7.Text = "Sistema de control de gastos \r\n               Empanada";
+            this.label7.Text = "Sistema de control de gastos \r\n               El Gran Pollo";
             // 
             // Gastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(728, 347);
+            this.ClientSize = new System.Drawing.Size(784, 347);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);

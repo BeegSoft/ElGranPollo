@@ -57,7 +57,7 @@ namespace ElGranPollo
 
         private void SELECT_GASTOS()
         {
-            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_gastos, Fecha, Descripcion, Gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
+            OleDbDataAdapter adaptador = new OleDbDataAdapter("SELECT id_gastos, fecha, descripcion, gasto FROM GASTOS WHERE fecha = '" + fecha + "'", ds);
 
             DataSet dataset = new DataSet();
             DataTable tabla = new DataTable();
@@ -69,9 +69,9 @@ namespace ElGranPollo
             {
                 DataRow filas = tabla.Rows[i];
                 ListViewItem elementos = new ListViewItem(filas["id_gastos"].ToString());
-                elementos.SubItems.Add(filas["Fecha"].ToString());
-                elementos.SubItems.Add(filas["Descripcion"].ToString());
-                elementos.SubItems.Add(filas["Gasto"].ToString());
+                elementos.SubItems.Add(filas["fecha"].ToString());
+                elementos.SubItems.Add(filas["descripcion"].ToString());
+                elementos.SubItems.Add(filas["gasto"].ToString());
 
                 listView_gastos.Items.Add(elementos);
             }
@@ -136,11 +136,11 @@ namespace ElGranPollo
             }
             else
             {
-                string insertar = "INSERT INTO GASTOS (Fecha, Descripcion, Gasto) VALUES (@Fecha, @Descripcion, @Gasto)";
+                string insertar = "INSERT INTO GASTOS (fecha, descripcion, gasto) VALUES (@fecha, @descripcion, @gasto)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
-                cmd.Parameters.AddWithValue("@Fecha", fecha);
-                cmd.Parameters.AddWithValue("@Descripcion", textBox_descripcion.Text);
-                cmd.Parameters.AddWithValue("@Gasto", Convert.ToInt32(textBox_gasto.Text));
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@descripcion", textBox_descripcion.Text);
+                cmd.Parameters.AddWithValue("@gasto", Convert.ToInt32(textBox_gasto.Text));
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -241,7 +241,7 @@ namespace ElGranPollo
                         OleDbConnection conexion = new OleDbConnection(ds);
 
                         conexion.Open();
-                        string insertar = "DELETE FROM GASTOS WHERE Id_gastos = " + id;
+                        string insertar = "DELETE FROM GASTOS WHERE id_gastos = " + id;
                         OleDbCommand cmd = new OleDbCommand(insertar, conexion);
 
                         cmd.ExecuteNonQuery();
@@ -278,7 +278,7 @@ namespace ElGranPollo
             
             //SUMAR TODOS LOS GASTOS
 
-            string sql = "select SUM(Gasto) from GASTOS WHERE Fecha = '" + fecha + "'";
+            string sql = "select SUM(gasto) from GASTOS WHERE fecha = '" + fecha + "'";
             OleDbCommand cmd2 = new OleDbCommand(sql, conexion); //Conexion es tu objeto conexion                                            
 
             string suma_gasto = ((cmd2.ExecuteScalar()).ToString());
@@ -291,18 +291,13 @@ namespace ElGranPollo
 
             //ACTUALIZAR LOS GASTOS DE LA FECHA
 
-            string actualizar = "UPDATE FECHA SET Gastos = @Gastos WHERE fecha = '" + fecha + "'";
+            string actualizar = "UPDATE FECHA SET gastos = @gastos WHERE fecha = '" + fecha + "'";
             OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
-            cmd3.Parameters.AddWithValue("@Gastos", suma_gasto);
+            cmd3.Parameters.AddWithValue("@gastos", suma_gasto);
 
             cmd3.ExecuteNonQuery();
 
             conexion.Close();
-        }
-
-        private void textBox_total_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

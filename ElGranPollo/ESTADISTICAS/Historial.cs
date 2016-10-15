@@ -154,7 +154,7 @@ namespace ElGranPollo
 
                     //SUMAR LAS VENTAS DE LOS PLATILLOS SELECCIONADOS
 
-                    string select2 = "SELECT COUNT(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+                    string select2 = "SELECT COUNT(ORDEN.total) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
 
                     OleDbCommand cmd3 = new OleDbCommand(select2, conexion); //Conexion es tu objeto conexion                                
 
