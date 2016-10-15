@@ -25,7 +25,6 @@ namespace ElGranPollo
             this.ds = ds;
         }
 
-
         public int id_orden;
         public string total_pagar, fecha,operador, ds;
 
@@ -40,7 +39,6 @@ namespace ElGranPollo
                                     null,
                                     culture,
                                     new object[] { culture });
-
                 type.InvokeMember("s_userDefaultUICulture",
                                     BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Static,
                                     null,
@@ -48,7 +46,6 @@ namespace ElGranPollo
                                     new object[] { culture });
             }
             catch { }
-
             try
             {
                 type.InvokeMember("m_userDefaultCulture",
@@ -68,35 +65,6 @@ namespace ElGranPollo
 
         private void pagar_Load(object sender, EventArgs e)
         {
-            OleDbConnection conexion = new OleDbConnection(ds);
-
-            conexion.Open();
-
-            string select = "SELECT observacion FROM ORDEN WHERE id_orden=" + id_orden;
-            OleDbCommand cmd = new OleDbCommand(select, conexion);
-            try
-            {
-                OleDbDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        textBox_descripcion.Text = reader.GetString(0);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            conexion.Close();
 
             SELECT_PLATILLO();
 
@@ -110,6 +78,35 @@ namespace ElGranPollo
             total_pagar = (cmd2.ExecuteScalar()).ToString();
 
             textBox_total.Text = total_pagar;
+
+            string select = "SELECT observaciones FROM ORDEN WHERE id_orden=" + id_orden;
+            OleDbCommand cmd = new OleDbCommand(select, conexion4);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.GetString(0) == "Credito")
+                        {
+                            textBox_efectivo.Text = total_pagar;
+                            textBox_efectivo.Enabled = false;
+                        }
+                        textBox_descripcion.Text = reader.GetString(0);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error orden" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             textBox_efectivo.Focus();
             conexion4.Close();
@@ -180,25 +177,11 @@ namespace ElGranPollo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //QUITAR LA ORDEN DEL LISTVIEW QUE SIGNIFICA QUE YA HA PAGADO Y NO TIENE PORQUE APARECER AHI
-
-            OleDbConnection conexion4 = new OleDbConnection(ds);
-
-            conexion4.Open();
-
-            string insertar = "UPDATE ORDEN SET checador = @checador WHERE id_orden=" + id_orden;
-            OleDbCommand cmd3 = new OleDbCommand(insertar, conexion4);
-            cmd3.Parameters.AddWithValue("@checador", 0);
-
-            cmd3.ExecuteNonQuery();
-
             MessageBox.Show("Pago con exito", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conexion4.Close();
 
             IForm2 formInterface = this.Owner as IForm2;
             if (formInterface != null)
                 formInterface.Relogear_ordenes();
-
 
             this.Close();
         }
@@ -228,14 +211,14 @@ namespace ElGranPollo
 
                 CrearTicket ticket = new CrearTicket();
                 ticket.AbreCajon();
-                ticket.TextoCentro("LAS EMPANADAS DE MI AMA");
+                ticket.TextoCentro("EL GRAN POLLO");
                 ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
                 ticket.TextoIzquierda("DIREC: CALLE 16 Y AV TECNOLOGICO");
                 ticket.TextoIzquierda("TELEFONO: 01 662 176 3999 ");
                 ticket.TextoIzquierda("RFC XXXXXX-XXXXXXX-XXXXX");
                 ticket.TextoIzquierda("");
                 ticket.TextoIzquierda("");
-                ticket.TextoIzquierda("ATENDIO: "+operador);
+                ticket.TextoIzquierda("ATENDIO: " + operador);
                 ticket.TextoExtremos("CLIENTE: ", textBox_descripcion.Text);
                 ticket.TextoIzquierda("");
                 ticket.TextoExtremos("FECHA:" + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
@@ -243,7 +226,6 @@ namespace ElGranPollo
                 //Articulos a vender.
                 ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
                 ticket.lineasAsteriscos();
-
 
                 OleDbConnection conexion = new OleDbConnection(ds);
 
@@ -253,8 +235,6 @@ namespace ElGranPollo
                 OleDbCommand cmd = new OleDbCommand(select, conexion);
                 try
                 {
-
-
                     OleDbDataReader reader = cmd.ExecuteReader();
 
                     if (reader.HasRows)
@@ -262,7 +242,6 @@ namespace ElGranPollo
                         while (reader.Read())
                         {
                             textBox_descripcion.Text = reader.GetString(0);
-
                         }
                     }
                     else
@@ -270,9 +249,6 @@ namespace ElGranPollo
                         MessageBox.Show("No se pudo", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     reader.Close();
-
-
-
                 }
                 catch (Exception ex)
                 {
@@ -292,8 +268,6 @@ namespace ElGranPollo
                 c = tabla.Rows.Count;
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
-
-
                     DataRow filas = tabla.Rows[i];
                     ListViewItem elemntos = new ListViewItem(filas["nombre_platillo"].ToString());
                     elemntos.SubItems.Add(filas["cantidad"].ToString());
@@ -334,13 +308,11 @@ namespace ElGranPollo
                 //ticket.ImprimirTicket("Microsoft XPS Document Writer");//Nombre de la impresora ticketera
                 ticket.ImprimirTicket("POS-58(copy of 5)");
 
-
                 conexion.Close();
 
                 IForm2 formInterface = this.Owner as IForm2;
                 if (formInterface != null)
                     formInterface.Relogear_ordenes();
-
 
                 this.Close();
             }

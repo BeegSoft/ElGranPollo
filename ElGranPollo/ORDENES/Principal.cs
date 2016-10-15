@@ -146,6 +146,7 @@ namespace ElGranPollo
 
         private void button8_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(fecha);
             LIMPIEZA();
         }
 
@@ -157,11 +158,17 @@ namespace ElGranPollo
 
         private void button6_Click(object sender, EventArgs e)
         {
+            
             foreach (ListViewItem lista in listView_fechas.SelectedItems)
             {
                 fecha_ale = lista.Text;                
             }
             SELECT_HISTORIAL(fecha_ale);
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -412,11 +419,11 @@ namespace ElGranPollo
 
                 conexion.Open();
 
-                string insertar10 = "INSERT INTO ORDEN (total, fecha, observacion) VALUES (@total, @fecha, @observacion)";
+                string insertar10 = "INSERT INTO ORDEN (total, fecha, observaciones) VALUES (@total, @fecha, @observacion)";
                 OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
                 cmd10.Parameters.AddWithValue("@total", total_pagar);
                 cmd10.Parameters.AddWithValue("@fecha", fecha);
-                cmd10.Parameters.AddWithValue("@observacion", observacion);
+                cmd10.Parameters.AddWithValue("@observaciones", observacion);
 
                 cmd10.ExecuteNonQuery();
 
@@ -520,6 +527,22 @@ namespace ElGranPollo
         {
             if (radioButton2.Checked)
             {
+                OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT fecha FROM FECHA", ds);
+
+                DataSet dataset5 = new DataSet();
+                DataTable tabla5 = new DataTable();
+
+                adaptador5.Fill(dataset5);
+                tabla5 = dataset5.Tables[0];
+                this.listView_fechas.Items.Clear();
+                for (int i = 0; i < tabla5.Rows.Count; i++)
+                {
+                    DataRow filas2 = tabla5.Rows[i];
+                    ListViewItem elemntos5 = new ListViewItem(filas2["fecha"].ToString());
+
+                    listView_fechas.Items.Add(elemntos5);
+                }
+
                 label10.Visible = true;
                 label9.Visible = false;
                 dateTimePicker1.Visible = false;
@@ -547,7 +570,7 @@ namespace ElGranPollo
         
         private void SELECT_HISTORIAL(string date)
         {
-            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, observacion, total FROM ORDEN WHERE fecha = '" + date + "'", ds);
+            OleDbDataAdapter adaptador5 = new OleDbDataAdapter("SELECT id_orden, observaciones, total FROM ORDEN WHERE fecha = '" + date + "'", ds);
 
             DataSet dataset5 = new DataSet();
             DataTable tabla5 = new DataTable();
@@ -559,7 +582,7 @@ namespace ElGranPollo
             {
                 DataRow filas2 = tabla5.Rows[i];
                 ListViewItem elemntos5 = new ListViewItem(filas2["id_orden"].ToString());
-                elemntos5.SubItems.Add(filas2["observacion"].ToString());
+                elemntos5.SubItems.Add(filas2["observaciones"].ToString());
                 elemntos5.SubItems.Add(filas2["total"].ToString());
 
                 listView_Historial.Items.Add(elemntos5);

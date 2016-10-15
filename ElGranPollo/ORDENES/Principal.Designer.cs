@@ -95,9 +95,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.radioCredito = new System.Windows.Forms.RadioButton();
-            this.radio_efectivo = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -112,7 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.extra_salsa)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -738,6 +734,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Tabla de Fecha";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
             // radioButton1
@@ -897,40 +894,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "El Gran Pollo";
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.radioCredito);
-            this.groupBox8.Controls.Add(this.radio_efectivo);
-            this.groupBox8.Location = new System.Drawing.Point(375, 39);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(119, 158);
-            this.groupBox8.TabIndex = 94;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Tipo de Pago";
-            this.groupBox8.Enter += new System.EventHandler(this.groupBox8_Enter);
-            // 
-            // radioCredito
-            // 
-            this.radioCredito.AutoSize = true;
-            this.radioCredito.Location = new System.Drawing.Point(8, 61);
-            this.radioCredito.Name = "radioCredito";
-            this.radioCredito.Size = new System.Drawing.Size(76, 20);
-            this.radioCredito.TabIndex = 4;
-            this.radioCredito.Text = "Credito";
-            this.radioCredito.UseVisualStyleBackColor = true;
-            // 
-            // radio_efectivo
-            // 
-            this.radio_efectivo.AutoSize = true;
-            this.radio_efectivo.Checked = true;
-            this.radio_efectivo.Location = new System.Drawing.Point(8, 25);
-            this.radio_efectivo.Name = "radio_efectivo";
-            this.radio_efectivo.Size = new System.Drawing.Size(82, 20);
-            this.radio_efectivo.TabIndex = 2;
-            this.radio_efectivo.TabStop = true;
-            this.radio_efectivo.Text = "Efectivo";
-            this.radio_efectivo.UseVisualStyleBackColor = true;
-            // 
             // Pricipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -967,8 +930,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

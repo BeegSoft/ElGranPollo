@@ -305,7 +305,7 @@
             // Ganancias
             // 
             this.Ganancias.AutoSize = true;
-            this.Ganancias.Location = new System.Drawing.Point(66, 85);
+            this.Ganancias.Location = new System.Drawing.Point(59, 85);
             this.Ganancias.Name = "Ganancias";
             this.Ganancias.Size = new System.Drawing.Size(71, 13);
             this.Ganancias.TabIndex = 15;
@@ -331,7 +331,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(84, 59);
+            this.label16.Location = new System.Drawing.Point(80, 59);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(50, 13);
             this.label16.TabIndex = 12;
@@ -348,7 +348,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(35, 138);
+            this.label14.Location = new System.Drawing.Point(28, 138);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(111, 13);
             this.label14.TabIndex = 10;
@@ -374,7 +374,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 114);
+            this.label4.Location = new System.Drawing.Point(50, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 6;
@@ -391,7 +391,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 31);
+            this.label3.Location = new System.Drawing.Point(79, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 4;

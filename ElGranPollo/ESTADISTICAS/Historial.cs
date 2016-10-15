@@ -116,7 +116,7 @@ namespace ElGranPollo
                 conexion.Open();
                 try
                 {
-                    string select = "SELECT SUM(ORDEN.total_pagar) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+                    string select = "SELECT SUM(ORDEN.total) FROM ORDEN INNER JOIN FECHA ON ORDEN.fecha = FECHA.fecha WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
 
                     OleDbCommand cmd2 = new OleDbCommand(select, conexion); //Conexion es tu objeto conexion                                
 
@@ -166,7 +166,7 @@ namespace ElGranPollo
 
                     //--------------------------------------------------------
 
-                    //TOTAL DE EMPANADAS VENDIDAS EN EL PERIODO SELECCIONADO
+                    //TOTAL DE POLLOS VENDIDAS EN EL PERIODO SELECCIONADO
 
                     string select3 = "SELECT SUM(PLATILLO.cantidad) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
 

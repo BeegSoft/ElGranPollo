@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_total = new System.Windows.Forms.TextBox();
             this.textBox_efectivo = new System.Windows.Forms.TextBox();
@@ -56,7 +55,7 @@
             this.column_platillo,
             this.column_cantidad,
             this.column_total});
-            this.listView_pagar.Location = new System.Drawing.Point(0, 53);
+            this.listView_pagar.Location = new System.Drawing.Point(0, 69);
             this.listView_pagar.Name = "listView_pagar";
             this.listView_pagar.Size = new System.Drawing.Size(525, 230);
             this.listView_pagar.TabIndex = 0;
@@ -92,14 +91,14 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nombre del cliente";
+            this.label2.Text = "Tipo de pago";
             // 
             // textBox_descripcion
             // 
             this.textBox_descripcion.Enabled = false;
-            this.textBox_descripcion.Location = new System.Drawing.Point(117, 28);
+            this.textBox_descripcion.Location = new System.Drawing.Point(94, 28);
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.Size = new System.Drawing.Size(90, 20);
             this.textBox_descripcion.TabIndex = 3;
@@ -107,7 +106,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(8, 315);
+            this.button1.Location = new System.Drawing.Point(8, 331);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
             this.button1.TabIndex = 4;
@@ -115,21 +114,10 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(197, 316);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Tarjeta";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, 299);
+            this.label3.Location = new System.Drawing.Point(321, 315);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 6;
@@ -138,14 +126,14 @@
             // textBox_total
             // 
             this.textBox_total.Enabled = false;
-            this.textBox_total.Location = new System.Drawing.Point(444, 292);
+            this.textBox_total.Location = new System.Drawing.Point(444, 308);
             this.textBox_total.Name = "textBox_total";
             this.textBox_total.Size = new System.Drawing.Size(83, 20);
             this.textBox_total.TabIndex = 7;
             // 
             // textBox_efectivo
             // 
-            this.textBox_efectivo.Location = new System.Drawing.Point(444, 318);
+            this.textBox_efectivo.Location = new System.Drawing.Point(444, 334);
             this.textBox_efectivo.Name = "textBox_efectivo";
             this.textBox_efectivo.Size = new System.Drawing.Size(83, 20);
             this.textBox_efectivo.TabIndex = 0;
@@ -154,7 +142,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(350, 325);
+            this.label4.Location = new System.Drawing.Point(350, 341);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 8;
@@ -163,7 +151,7 @@
             // textBox_cambio
             // 
             this.textBox_cambio.Enabled = false;
-            this.textBox_cambio.Location = new System.Drawing.Point(444, 344);
+            this.textBox_cambio.Location = new System.Drawing.Point(444, 360);
             this.textBox_cambio.Name = "textBox_cambio";
             this.textBox_cambio.Size = new System.Drawing.Size(83, 20);
             this.textBox_cambio.TabIndex = 11;
@@ -171,7 +159,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(355, 351);
+            this.label5.Location = new System.Drawing.Point(355, 367);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 10;
@@ -180,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(422, 325);
+            this.label6.Location = new System.Drawing.Point(422, 341);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(14, 13);
             this.label6.TabIndex = 12;
@@ -189,7 +177,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(422, 351);
+            this.label7.Location = new System.Drawing.Point(422, 367);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(14, 13);
             this.label7.TabIndex = 13;
@@ -198,7 +186,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(422, 299);
+            this.label8.Location = new System.Drawing.Point(422, 315);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 14;
@@ -207,7 +195,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(103, 316);
+            this.button3.Location = new System.Drawing.Point(103, 332);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 21);
             this.button3.TabIndex = 15;
@@ -220,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(573, 379);
+            this.ClientSize = new System.Drawing.Size(573, 385);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -231,7 +219,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox_total);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_descripcion);
             this.Controls.Add(this.label2);
@@ -257,7 +244,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_descripcion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_total;
         private System.Windows.Forms.TextBox textBox_efectivo;
