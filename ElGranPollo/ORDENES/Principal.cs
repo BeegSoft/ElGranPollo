@@ -56,7 +56,7 @@ namespace ElGranPollo
                 listView_Historial.Location = new Point(123, 68);
             }
 
-           // SELECT_HISTORIAL(fecha);
+           SELECT_HISTORIAL(fecha);
 
         }
 
@@ -452,7 +452,7 @@ namespace ElGranPollo
                 MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexion.Close();
 
-
+                SELECT_HISTORIAL(fecha);
                 LIMPIEZA();
                 pagar form = new pagar(id_orden, fecha, ds);
                 form.Show();
