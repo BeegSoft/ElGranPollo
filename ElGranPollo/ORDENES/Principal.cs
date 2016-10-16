@@ -205,16 +205,19 @@ namespace ElGranPollo
                 else
                 {
                     MessageBox.Show("No se encontro", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    banda = false;                    
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    textBox6.Text = "";
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            
-
+            }            
             conexion.Close();
         }
 
@@ -241,7 +244,7 @@ namespace ElGranPollo
                 cmd.Parameters.AddWithValue("@descripcion_casa", textBox3.Text);
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos modificados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);                
             }
             else
             {
