@@ -35,13 +35,9 @@ namespace ElGranPollo
             groupBox5.Enabled = false;
         }
 
-
-        
-
         public string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo, observacion;
         public int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra, total_pagar;
         public bool bandera_domicilio = false,banda;
-
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
@@ -171,6 +167,42 @@ namespace ElGranPollo
 
         }
 
+        private void radio_dos_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radio_dos.Checked == true)
+            {
+                extra_tortilla.Value = 2;
+                extra_salsa.Value = 2;
+                extra_ensalada.Value = 2;
+                extra_frijol.Value = 2;
+                extra_cebolla.Value = 2;
+            }
+        }
+
+        private void radio_unomedio_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radio_unomedio.Checked == true)
+            {
+                extra_tortilla.Value = 1;
+                extra_salsa.Value = 1;
+                extra_ensalada.Value = 1;
+                extra_frijol.Value = 1;
+                extra_cebolla.Value = 1;
+            }
+        }
+
+        private void radio_uno_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radio_uno.Checked == true)
+            {
+                extra_tortilla.Value = 1;
+                extra_salsa.Value = 1;
+                extra_ensalada.Value = 1;
+                extra_frijol.Value = 1;
+                extra_cebolla.Value = 1;
+            }
+        }
+
         private void button10_Click(object sender, EventArgs e)
         {
             OleDbConnection conexion = new OleDbConnection(ds);
@@ -296,7 +328,14 @@ namespace ElGranPollo
 
         private void radio_medio_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radio_medio.Checked == true)
+            {
+                extra_tortilla.Value = 1;
+                extra_salsa.Value = 1;
+                extra_ensalada.Value = 1;
+                extra_frijol.Value = 1;
+                extra_cebolla.Value = 1;
+            }
         }
 
         //BOTON DE TERMINAR
@@ -395,6 +434,18 @@ namespace ElGranPollo
                 {
                     MessageBox.Show("Error orden" + ex);
                 }
+
+                if (radio_dos.Checked == true)
+                {
+                    if(cantidad_extras > 10)
+                    {
+                        extras_neto = cantidad_extras - 10;
+                        cobro_extra = extras_neto * precio_extra;
+
+                        total_pagar = cobro_extra + precio_pagar;
+                    }
+                }
+                
                 extras_neto = cantidad_extras - 5;
                 cobro_extra = extras_neto * precio_extra;
 
@@ -420,14 +471,26 @@ namespace ElGranPollo
                 OleDbConnection conexion = new OleDbConnection(ds);
 
                 conexion.Open();
+                if (cantidad_extras > 5)
+                {
+                    string insertar10 = "INSERT INTO ORDEN (total, fecha, observaciones) VALUES (@total, @fecha, @observacion)";
+                    OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
+                    cmd10.Parameters.AddWithValue("@total", total_pagar);
+                    cmd10.Parameters.AddWithValue("@fecha", fecha);
+                    cmd10.Parameters.AddWithValue("@observaciones", observacion);
 
-                string insertar10 = "INSERT INTO ORDEN (total, fecha, observaciones) VALUES (@total, @fecha, @observacion)";
-                OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
-                cmd10.Parameters.AddWithValue("@total", total_pagar);
-                cmd10.Parameters.AddWithValue("@fecha", fecha);
-                cmd10.Parameters.AddWithValue("@observaciones", observacion);
+                    cmd10.ExecuteNonQuery();
+                }
+                else
+                {
+                    string insertar10 = "INSERT INTO ORDEN (total, fecha, observaciones) VALUES (@total, @fecha, @observacion)";
+                    OleDbCommand cmd10 = new OleDbCommand(insertar10, conexion);
+                    cmd10.Parameters.AddWithValue("@total", precio_pagar);
+                    cmd10.Parameters.AddWithValue("@fecha", fecha);
+                    cmd10.Parameters.AddWithValue("@observaciones", observacion);
 
-                cmd10.ExecuteNonQuery();
+                    cmd10.ExecuteNonQuery();
+                }
 
                 string insertar = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
@@ -457,6 +520,7 @@ namespace ElGranPollo
                 LIMPIEZA();
                 pagar form = new pagar(id_orden, fecha, ds);
                 form.Show();
+                SELECT_HISTORIAL(fecha);
             }
         }
 
@@ -480,6 +544,10 @@ namespace ElGranPollo
             extra_ensalada.Value = 1;
             extra_frijol.Value = 1;
             extra_cebolla.Value = 1;
+
+            //TIPO DE PAGO
+            radio_efectivo.Checked = true;
+            radioCredito.Checked = false;
 
             //DOMICILIO
             textBox1.Text = "";
