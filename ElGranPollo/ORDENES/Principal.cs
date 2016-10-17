@@ -230,8 +230,7 @@ namespace ElGranPollo
 
                         textBox3.Text = reader.GetString(4);
                         //--------------------------------
-                        banda = true;
-                        MessageBox.Show("Cliente encontrado", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        banda = true;                        
                     }
                 }
                 else
@@ -304,7 +303,7 @@ namespace ElGranPollo
 
         private void estadisticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Historial corre = new Historial(ds);
+            Historial corre = new Historial(ds,fecha);
             corre.Show();
         }
 
@@ -514,8 +513,7 @@ namespace ElGranPollo
 
                     cmd22.ExecuteNonQuery();
                 }
-
-                MessageBox.Show("Datos agregados correctamente", "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 conexion.Close();
 
                 SELECT_HISTORIAL(fecha);
