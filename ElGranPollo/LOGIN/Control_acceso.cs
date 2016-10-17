@@ -100,12 +100,12 @@ namespace ElGranPollo
 
         private void CHECAR2()
         {
-            if ((comboBox1== "ROOT") || (comboBox1 == "ADMINISTRADOR") || (comboBox1 == "OPERADOR"))
+            if ((comboBox1== "ROOT") || (comboBox1 == "ADMINISTRADOR"))
             {
                 textBox1.Focus();
                 TIPO();                
             }
-            else if ((comboBox1 != "ROOT") || (comboBox1 != "ADMINISTRADOR") || (comboBox1 != "OPERADOR"))
+            else if ((comboBox1 != "ROOT") || (comboBox1 != "ADMINISTRADOR"))
             {
                 if (veces == 3)
                 {
@@ -209,13 +209,8 @@ namespace ElGranPollo
                     MessageBox.Show("Ingrese su Clave para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     textBox2.Focus();
                     return;
-                }
-                if (comboBox1 == "SELECCIONAR")
-                {
-                    MessageBox.Show("Seleccione Tipo para Continuar", "conexion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                  
-                    return;
-                }
-                if ((textBox1.Text != "") && (textBox2.Text != "") && (comboBox1 != "SELECCIONAR"))
+                }                
+                if ((textBox1.Text != "") && (textBox2.Text != ""))
                 {
                     CONECTAR();
                     break;
