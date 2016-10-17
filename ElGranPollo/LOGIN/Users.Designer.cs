@@ -285,12 +285,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 103;
             this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Seleccione un ID y de click aqui para borrar un usuario ");
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // toolTip1
             // 
-            this.toolTip1.Tag = "Seleccione un ID y de click aqui";
-            this.toolTip1.ToolTipTitle = "Seleccione un ID y de click aqui";
+            this.toolTip1.AutomaticDelay = 200;
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 200;
+            this.toolTip1.ReshowDelay = 40;
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.Tag = "Seleccione un ID y de click aqui para borrar un usuario ";
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // Users
