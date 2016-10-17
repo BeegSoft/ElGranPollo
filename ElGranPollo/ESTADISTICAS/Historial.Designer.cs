@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button3 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.listView_fechas = new System.Windows.Forms.ListView();
@@ -71,6 +71,7 @@
             this.gastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -87,9 +88,9 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::ElGranPollo.Properties.Resources.mostrar;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(336, 76);
+            this.button3.Location = new System.Drawing.Point(273, 109);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 57);
+            this.button3.Size = new System.Drawing.Size(92, 51);
             this.button3.TabIndex = 89;
             this.button3.Text = "Mostrar";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -113,7 +114,7 @@
             this.column_fechas});
             this.listView_fechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_fechas.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.listView_fechas.Location = new System.Drawing.Point(23, 155);
+            this.listView_fechas.Location = new System.Drawing.Point(23, 166);
             this.listView_fechas.Name = "listView_fechas";
             this.listView_fechas.Size = new System.Drawing.Size(124, 178);
             this.listView_fechas.TabIndex = 86;
@@ -216,7 +217,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(20, 114);
+            this.label6.Location = new System.Drawing.Point(51, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 83;
@@ -226,7 +227,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 83);
+            this.label5.Location = new System.Drawing.Point(86, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(279, 13);
             this.label5.TabIndex = 82;
@@ -236,7 +237,7 @@
             // 
             this.a.AutoSize = true;
             this.a.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.a.Location = new System.Drawing.Point(174, 114);
+            this.a.Location = new System.Drawing.Point(205, 83);
             this.a.Name = "a";
             this.a.Size = new System.Drawing.Size(40, 13);
             this.a.TabIndex = 81;
@@ -246,7 +247,7 @@
             // 
             this.fechaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaB.Location = new System.Drawing.Point(217, 110);
+            this.fechaB.Location = new System.Drawing.Point(248, 79);
             this.fechaB.Name = "fechaB";
             this.fechaB.Size = new System.Drawing.Size(102, 20);
             this.fechaB.TabIndex = 80;
@@ -256,7 +257,7 @@
             // 
             this.fechaA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaA.Location = new System.Drawing.Point(64, 110);
+            this.fechaA.Location = new System.Drawing.Point(95, 79);
             this.fechaA.Name = "fechaA";
             this.fechaA.Size = new System.Drawing.Size(102, 20);
             this.fechaA.TabIndex = 79;
@@ -278,7 +279,7 @@
             this.groupBox2.Controls.Add(this.textBox_ventas);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(177, 155);
+            this.groupBox2.Location = new System.Drawing.Point(177, 166);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(268, 178);
             this.groupBox2.TabIndex = 78;
@@ -443,34 +444,53 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(482, 91);
             this.chart1.Name = "chart1";
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.DodgerBlue,
         System.Drawing.Color.Red,
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.CornflowerBlue;
-            series1.Legend = "Legend1";
-            series1.Name = "Ventas";
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Gastos";
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.LimeGreen;
-            series3.Legend = "Legend1";
-            series3.Name = "Ganancias";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.CornflowerBlue;
+            series4.Legend = "Legend1";
+            series4.Name = "Ventas";
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.Name = "Gastos";
+            series6.ChartArea = "ChartArea1";
+            series6.Color = System.Drawing.Color.LimeGreen;
+            series6.Legend = "Legend1";
+            series6.Name = "Ganancias";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(594, 385);
             this.chart1.TabIndex = 90;
             this.chart1.Text = "chart1";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::ElGranPollo.Properties.Resources.mostrar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(29, 109);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 51);
+            this.button1.TabIndex = 91;
+            this.button1.Text = "Fecha Actual";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Historial
             // 
@@ -478,6 +498,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(472, 482);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label13);
@@ -547,5 +568,6 @@
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem almacenToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
     }
 }
