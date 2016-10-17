@@ -387,6 +387,11 @@ namespace ElGranPollo
 
         }
 
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             BORRAR(band);

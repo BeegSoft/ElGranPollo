@@ -278,6 +278,7 @@
             this.radio_dos.TabIndex = 5;
             this.radio_dos.Text = "2";
             this.radio_dos.UseVisualStyleBackColor = true;
+            this.radio_dos.CheckedChanged += new System.EventHandler(this.radio_dos_CheckedChanged);
             this.radio_dos.Click += new System.EventHandler(this.radioButton6_Click);
             // 
             // radio_unomedio
@@ -289,6 +290,7 @@
             this.radio_unomedio.TabIndex = 4;
             this.radio_unomedio.Text = "1 1/2";
             this.radio_unomedio.UseVisualStyleBackColor = true;
+            this.radio_unomedio.CheckedChanged += new System.EventHandler(this.radio_unomedio_CheckedChanged);
             this.radio_unomedio.Click += new System.EventHandler(this.radioButton5_Click);
             // 
             // radio_uno
@@ -300,6 +302,7 @@
             this.radio_uno.TabIndex = 3;
             this.radio_uno.Text = "1";
             this.radio_uno.UseVisualStyleBackColor = true;
+            this.radio_uno.CheckedChanged += new System.EventHandler(this.radio_uno_CheckedChanged);
             this.radio_uno.Click += new System.EventHandler(this.radioButton4_Click);
             // 
             // radio_medio
