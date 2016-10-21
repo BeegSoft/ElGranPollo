@@ -36,8 +36,9 @@ namespace ElGranPollo
         }
 
         public string fecha,fecha_ale, ds,ds2, nombre_platillo, opcion_cantidad_pollo, opcion_tipo_pollo, observacion;
-        public int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra, total_pagar;
+        public int band, id_orden, precio_pagar, cantidad_extras, extras_neto, cobro_extra, precio_extra, total_pagar, ventas, gastos, ganancias;
         public bool bandera_domicilio = false,banda;
+        public double opcion_cantidad_neta_pollo;
 
         private void Pricipal_Load(object sender, EventArgs e)
         {
@@ -363,14 +364,26 @@ namespace ElGranPollo
             conexion2.Close();*/
 
             /*===============Seleccion de cantidad de pollo=====================*/
-            if (radio_medio.Checked == true) opcion_cantidad_pollo = "Medio";
-
-            else if (radio_uno.Checked == true) opcion_cantidad_pollo = "Uno";
-
-            else if (radio_unomedio.Checked == true) opcion_cantidad_pollo = "Uno_y_medio";
-
-            else if (radio_dos.Checked == true) opcion_cantidad_pollo = "Dos";
-
+            if (radio_medio.Checked == true)
+            {
+                opcion_cantidad_neta_pollo = 0.5;
+                opcion_cantidad_pollo = "Medio";
+            }
+            else if (radio_uno.Checked == true)
+            {
+                opcion_cantidad_neta_pollo = 1;
+                opcion_cantidad_pollo = "Uno";
+            }
+            else if (radio_unomedio.Checked == true)
+            {
+                opcion_cantidad_neta_pollo = 1.5;
+                opcion_cantidad_pollo = "Uno_y_medio";
+            }
+            else if (radio_dos.Checked == true)
+            {
+                opcion_cantidad_neta_pollo = 2;
+                opcion_cantidad_pollo = "Dos";
+            }
             /*==========Seleccionar el precio del pollo=========================*/
             OleDbConnection conexion3 = new OleDbConnection(ds);
 
@@ -492,11 +505,12 @@ namespace ElGranPollo
                     cmd10.ExecuteNonQuery();
                 }
 
-                string insertar = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                string insertar = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, observacion, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @observacion, @pagar)";
                 OleDbCommand cmd = new OleDbCommand(insertar, conexion);
                 cmd.Parameters.AddWithValue("@id_orden", Convert.ToInt32(id_orden));
                 cmd.Parameters.AddWithValue("@nombre_platillo", opcion_tipo_pollo);
-                cmd.Parameters.AddWithValue("@cantidad", opcion_cantidad_pollo);
+                cmd.Parameters.AddWithValue("@cantidad", opcion_cantidad_neta_pollo);
+                cmd.Parameters.AddWithValue("@observacion", opcion_cantidad_pollo);
                 cmd.Parameters.AddWithValue("@pagar", Convert.ToInt32(precio_pagar));
 
                 cmd.ExecuteNonQuery();
@@ -504,16 +518,38 @@ namespace ElGranPollo
                 //Si hay extras insertará que haya pedido extras
                 if(cobro_extra != 0)
                 {
-                    string insertar2 = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @pagar)";
+                    string insertar2 = "INSERT INTO PLATILLO (id_orden, nombre_platillo, cantidad,observacion, pagar) VALUES (@id_orden, @nombre_platillo, @cantidad, @observacion, @pagar)";
                     OleDbCommand cmd22 = new OleDbCommand(insertar2, conexion);
                     cmd22.Parameters.AddWithValue("@id_orden", id_orden);
                     cmd22.Parameters.AddWithValue("@nombre_platillo", "Extra");
                     cmd22.Parameters.AddWithValue("@cantidad", extras_neto);
+                    cmd22.Parameters.AddWithValue("@observacion", extras_neto);
                     cmd22.Parameters.AddWithValue("@pagar", cobro_extra);
 
                     cmd22.ExecuteNonQuery();
                 }
-                
+
+                //TOTAL DEL DIA
+                try
+                {
+                    string sql5 = "SELECT SUM(ORDEN.total) FROM FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha WHERE FECHA.fecha = '" + fecha + "'";
+
+                    OleDbCommand cmd7 = new OleDbCommand(sql5, conexion); //Conexion es tu objeto conexion                                
+
+                    int total_dia = Convert.ToInt32(cmd7.ExecuteScalar());
+
+                    //INSERTAR EL TOTAL EN LA TABLA ORDEN
+
+                    string insertar6 = "UPDATE FECHA SET venta_total = @Venta_total WHERE fecha = '" + fecha + "'";
+                    OleDbCommand cmd6 = new OleDbCommand(insertar6, conexion);
+                    cmd6.Parameters.AddWithValue("@Venta_total", total_dia);
+
+                    cmd6.ExecuteNonQuery();
+                }
+                catch
+                {
+
+                }
                 conexion.Close();
 
                 SELECT_HISTORIAL(fecha);
@@ -521,9 +557,52 @@ namespace ElGranPollo
                 pagar form = new pagar(id_orden, fecha, ds);
                 form.Show();
                 SELECT_HISTORIAL(fecha);
+
             }
+            GANANCIAS();
+
         }
 
+        //Metodo para calcular las ganancias del dia
+
+        private void GANANCIAS()
+        {
+            OleDbConnection conexion = new OleDbConnection(ds);
+
+            conexion.Open();
+
+            string select = "SELECT venta_total, Gastos FROM FECHA WHERE fecha='" + fecha + "'";
+            OleDbCommand cmd = new OleDbCommand(select, conexion);
+            try
+            {
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ventas = reader.GetInt32(0);
+                        gastos = reader.GetInt32(1);
+
+                        ganancias = ventas - gastos;
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex, "MENSAJE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //ACTUALIZAR LAS GANANCIAS
+            string actualizar = "UPDATE FECHA SET Ganancia = @Ganancia WHERE fecha = '" + fecha + "'";
+            OleDbCommand cmd3 = new OleDbCommand(actualizar, conexion);
+            cmd3.Parameters.AddWithValue("@Ganancia", ganancias);
+
+            cmd3.ExecuteNonQuery();
+
+            conexion.Close();
+        }
         //Metodo para poner las opciones del pedido en DEFAULT
         private void LIMPIEZA()
         {
