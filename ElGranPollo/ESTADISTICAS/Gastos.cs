@@ -91,7 +91,7 @@ namespace ElGranPollo
 
             conexion.Open();
 
-            string select = "SELECT Venta_total, Gastos FROM FECHA WHERE fecha='" + fecha + "'";
+            string select = "SELECT venta_total, Gastos FROM FECHA WHERE fecha='" + fecha + "'";
             OleDbCommand cmd = new OleDbCommand(select, conexion);
             try
             {
