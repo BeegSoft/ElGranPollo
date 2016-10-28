@@ -392,7 +392,16 @@ namespace ElGranPollo
             textBox_venta_platillo.Text = (cmd2.ExecuteScalar()).ToString();
             if (textBox_venta_platillo.Text == "")
             {
-                textBox_venta_platillo.Text = "0";
+                string select22 = "SELECT SUM(PLATILLO.pagar) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.observacion = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                OleDbCommand cmd22 = new OleDbCommand(select22, conexion); //Conexion es tu objeto conexion                                
+
+                textBox_venta_platillo.Text = (cmd22.ExecuteScalar()).ToString();
+
+                if (textBox_venta_platillo.Text == "")
+                {
+                    textBox_venta_platillo.Text = "0";
+                }
             }
             //...................................
 
@@ -405,7 +414,15 @@ namespace ElGranPollo
             textBox_platillos_vendidos.Text = (cmd3.ExecuteScalar()).ToString();
             if (textBox_platillos_vendidos.Text == "")
             {
-                textBox_platillos_vendidos.Text = "0";
+                string select23 = "SELECT SUM(PLATILLO.cantidad) FROM(FECHA INNER JOIN ORDEN ON FECHA.fecha = ORDEN.fecha) INNER JOIN PLATILLO ON ORDEN.id_orden = PLATILLO.id_orden WHERE PLATILLO.observacion = '" + comboBox_platillos.Text + "'" + "AND FECHA.id >= " + fechaa + "AND FECHA.id <= " + fechab;
+
+                OleDbCommand cmd32 = new OleDbCommand(select23, conexion); //Conexion es tu objeto conexion                                
+
+                textBox_platillos_vendidos.Text = (cmd32.ExecuteScalar()).ToString();
+                if (textBox_platillos_vendidos.Text == "")
+                {
+                    textBox_platillos_vendidos.Text = "0";
+                }
             }
 
             conexion.Close();
