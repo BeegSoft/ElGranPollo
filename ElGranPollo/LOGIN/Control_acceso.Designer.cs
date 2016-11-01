@@ -90,7 +90,6 @@
             this.textBox1.Size = new System.Drawing.Size(240, 14);
             this.textBox1.TabIndex = 53;
             this.textBox1.Tag = "2";
-            this.textBox1.Text = "22";
             // 
             // button3
             // 
