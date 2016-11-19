@@ -3,7 +3,6 @@ C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.exe
 C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.pdb
 C:\ElGranPollo\ElGranPollo\bin\Debug\ElGranPollo.exe
 C:\ElGranPollo\ElGranPollo\bin\Debug\ElGranPollo.pdb
-C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.csprojResolveAssemblyReference.cache
 C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.Gastos.resources
 C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.Historial.resources
 C:\ElGranPollo\ElGranPollo\obj\Debug\ElGranPollo.Control_acceso.resources
